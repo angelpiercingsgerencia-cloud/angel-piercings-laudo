@@ -1,0 +1,2468 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#5cccc5">
+<title>Angel Piercings Atacado — Relatório Técnico de Análise</title>
+
+<!-- ============================================================
+     ANGEL PIERCINGS ATACADO — SITE INSTITUCIONAL PREMIUM
+     Versão: 1.0  |  Junho 2026
+     Para trocar o logo: busque por [LOGO] nos comentários
+     Para trocar o PDF: busque por [PDF_URL]
+     Para trocar imagens: busque por [FOTO]
+     Para autenticação real: busque por [AUTH]
+     Para códigos de laudo reais: busque por [CODIGOS_LAUDO]
+     ============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+/* ===== DESIGN TOKENS =====
+   Paleta oficial Angel Piercings Atacado.
+   --turq (#5CCCC5) é a cor de marca oficial (turquesa).
+   ========================== */
+:root {
+  --ivory:       #F2F8F7;
+  --ivory-deep:  #E3F0EE;
+  --charcoal:    #15211F;
+  --charcoal-mid:#243431;
+  --turq:        #5CCCC5;
+  --turq-light:  #8FE0DA;
+  --mint-pale:   #E6F5F3;
+  --rose:        #CFEAE7;
+  --white:       #FFFFFF;
+  --gray-400:    #9E9E9E;
+  --gray-200:    #E8E4DD;
+  --red-soft:    #C0392B;
+  --green-soft:  #2E7D5A;
+
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body:    'Inter', system-ui, sans-serif;
+  --font-mono:    'DM Mono', 'Courier New', monospace;
+
+  --radius-sm:  8px;
+  --radius-md:  16px;
+  --radius-lg:  32px;
+  --radius-xl:  48px;
+
+  --shadow-soft: 0 4px 32px rgba(26,26,26,0.07);
+  --shadow-card: 0 8px 48px rgba(26,26,26,0.10);
+  --shadow-turq: 0 6px 28px rgba(92,204,197,0.32);
+
+  --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ===== RESET & BASE ===== */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--ivory);
+  color: var(--charcoal);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+img { display: block; width: 100%; object-fit: cover; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: var(--font-body); }
+
+/* ===== TYPOGRAPHY ===== */
+.display { font-family: var(--font-display); }
+.mono { font-family: var(--font-mono); }
+
+h1, h2, h3, h4 { font-family: var(--font-display); line-height: 1.15; }
+h1 { font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 700; letter-spacing: -0.02em; }
+h2 { font-size: clamp(1.6rem, 3.5vw, 2.6rem); font-weight: 600; }
+h3 { font-size: 1.25rem; font-weight: 600; }
+h4 { font-size: 1rem; font-weight: 600; font-family: var(--font-body); text-transform: uppercase; letter-spacing: 0.08em; }
+
+p { color: var(--charcoal-mid); }
+.eyebrow {
+  font-family: var(--font-body);
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--turq);
+}
+
+/* ===== LAYOUT ===== */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+.section { padding: 96px 0; }
+
+/* ===== NAVIGATION ===== */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(245,240,232,0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--gray-200);
+  transition: var(--transition);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 72px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* [LOGO] Logo oficial Angel Piercings — imagem real carregada do site oficial.
+   Para usar um arquivo local, baixe a imagem e troque o src por: logo.png */
+.nav-logo-img {
+  height: 46px;
+  width: auto;
+  display: block;
+}
+/* Logo no rodapé escuro: chip claro garante contraste qualquer que seja a cor do logo */
+.footer-logo-chip {
+  display: inline-flex;
+  align-items: center;
+  background: var(--white);
+  padding: 12px 18px;
+  border-radius: 14px;
+  margin-bottom: 4px;
+}
+.footer-logo-chip img {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+/* [LOGO] Substitua o conteúdo abaixo pelo seu logo real */
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.nav-logo-ring {
+  width: 36px; height: 36px;
+  border: 3px solid var(--turq);
+  border-radius: 50%;
+  position: relative;
+  flex-shrink: 0;
+}
+.nav-logo-ring::after {
+  content: '';
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 12px; height: 12px;
+  background: var(--turq);
+  border-radius: 50%;
+}
+.nav-logo-text {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.1;
+}
+.nav-logo-text span {
+  display: block;
+  font-size: 0.6rem;
+  font-family: var(--font-body);
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--gray-400);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--charcoal-mid);
+  transition: color var(--transition);
+}
+.nav-links a:hover { color: var(--turq); }
+
+.nav-cta {
+  padding: 10px 22px;
+  background: var(--charcoal);
+  color: var(--white) !important;
+  border-radius: 100px;
+  font-size: 0.82rem !important;
+  font-weight: 600 !important;
+  transition: background var(--transition) !important;
+}
+.nav-cta:hover { background: var(--turq) !important; color: var(--charcoal) !important; }
+
+.nav-mobile-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  padding: 8px;
+}
+.nav-mobile-toggle span {
+  display: block;
+  width: 24px; height: 2px;
+  background: var(--charcoal);
+  border-radius: 2px;
+  transition: var(--transition);
+}
+
+/* ===== BUTTONS ===== */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 100px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  transition: var(--transition);
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-body);
+}
+.btn-primary {
+  background: var(--charcoal);
+  color: var(--white);
+}
+.btn-primary:hover {
+  background: var(--turq);
+  color: var(--charcoal);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-turq);
+}
+.btn-outline {
+  background: transparent;
+  color: var(--charcoal);
+  border: 1.5px solid var(--charcoal);
+}
+.btn-outline:hover {
+  background: var(--charcoal);
+  color: var(--white);
+  transform: translateY(-2px);
+}
+.btn-gold {
+  background: var(--turq);
+  color: var(--charcoal);
+}
+.btn-gold:hover {
+  background: var(--charcoal);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-turq);
+}
+.btn-white {
+  background: var(--white);
+  color: var(--charcoal);
+}
+.btn-white:hover {
+  background: var(--turq);
+  color: var(--charcoal);
+  transform: translateY(-2px);
+}
+.btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+/* ===== HERO ===== */
+#hero {
+  padding-top: 72px;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 0;
+  background: var(--ivory);
+  overflow: hidden;
+  position: relative;
+}
+
+.hero-content {
+  padding: 80px 60px 80px 80px;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 28px;
+}
+.hero-eyebrow::before {
+  content: '';
+  display: block;
+  width: 32px; height: 2px;
+  background: var(--turq);
+}
+
+.hero-title { margin-bottom: 20px; }
+.hero-title em {
+  font-style: italic;
+  color: var(--turq);
+}
+
+.hero-subtitle {
+  font-size: 1.05rem;
+  color: var(--charcoal-mid);
+  max-width: 460px;
+  margin-bottom: 40px;
+  line-height: 1.75;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 56px;
+}
+
+.hero-badges {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.badge {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: var(--gray-400);
+}
+.badge-dot {
+  width: 8px; height: 8px;
+  background: var(--turq);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ===== SIGNATURE ELEMENT: TITANIUM RING ANIMATION ===== */
+.hero-visual {
+  height: 100vh;
+  position: relative;
+  background: var(--charcoal);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.hero-visual-bg {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 30% 60%, rgba(92,204,197,0.15) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 20%, rgba(92,204,197,0.08) 0%, transparent 50%);
+}
+
+.ring-scene {
+  position: relative;
+  width: 320px;
+  height: 320px;
+}
+
+.ring-orbit {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  border: 2px solid rgba(92,204,197,0.12);
+  animation: orbit 20s linear infinite;
+}
+.ring-orbit:nth-child(2) {
+  inset: 24px;
+  border-color: rgba(92,204,197,0.08);
+  animation-duration: 30s;
+  animation-direction: reverse;
+}
+.ring-orbit:nth-child(3) {
+  inset: 48px;
+  border-color: rgba(92,204,197,0.05);
+  animation-duration: 45s;
+}
+
+@keyframes orbit { to { transform: rotate(360deg); } }
+
+/* The main piercing ring SVG */
+.piercing-ring-wrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: float 4s ease-in-out infinite;
+}
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+
+.piercing-ring-svg {
+  width: 180px;
+  height: 180px;
+  filter: drop-shadow(0 8px 32px rgba(92,204,197,0.35));
+}
+
+.hero-doc-card {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(92,204,197,0.25);
+  border-radius: var(--radius-md);
+  padding: 16px 24px;
+  width: 260px;
+  backdrop-filter: blur(8px);
+}
+.hero-doc-card .mono {
+  font-size: 0.62rem;
+  color: var(--turq-light);
+  display: block;
+  margin-bottom: 4px;
+  letter-spacing: 0.1em;
+}
+.hero-doc-card p {
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.6);
+  margin-top: 4px;
+}
+.hero-doc-card strong {
+  color: var(--white);
+  font-size: 0.85rem;
+}
+.doc-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.68rem;
+  color: #4CAF83;
+  font-weight: 600;
+  margin-top: 8px;
+  letter-spacing: 0.05em;
+}
+.doc-status::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: #4CAF83;
+  border-radius: 50%;
+  animation: pulse-green 2s ease infinite;
+}
+@keyframes pulse-green {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.4); }
+}
+
+/* ===== AUTHORITY STRIP ===== */
+.authority-strip {
+  background: var(--charcoal);
+  padding: 28px 0;
+}
+.authority-strip-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+.authority-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.78rem;
+  color: rgba(255,255,255,0.55);
+  font-weight: 500;
+}
+.authority-item svg {
+  width: 16px; height: 16px;
+  color: var(--turq);
+  flex-shrink: 0;
+}
+
+/* ===== ABOUT / INTRO ===== */
+#sobre {
+  background: var(--white);
+  padding: 96px 0;
+}
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.about-visual {
+  position: relative;
+}
+.about-img-main {
+  width: 100%;
+  aspect-ratio: 4/5;
+  background: var(--ivory-deep);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+}
+/* [FOTO] Substitua pelo caminho real da foto do laboratório */
+.about-img-main::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--ivory-deep) 0%, var(--rose) 100%);
+}
+.about-img-placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: var(--turq);
+}
+.about-img-placeholder svg { width: 48px; height: 48px; opacity: 0.4; }
+.about-img-placeholder span {
+  font-size: 0.72rem;
+  color: var(--gray-400);
+  text-align: center;
+  max-width: 160px;
+  line-height: 1.5;
+}
+
+.about-stat-card {
+  position: absolute;
+  bottom: -24px;
+  right: -24px;
+  background: var(--charcoal);
+  color: var(--white);
+  padding: 24px 28px;
+  border-radius: var(--radius-md);
+  width: 180px;
+}
+.about-stat-card .num {
+  font-family: var(--font-display);
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: var(--turq);
+  line-height: 1;
+}
+.about-stat-card p {
+  color: rgba(255,255,255,0.55);
+  font-size: 0.75rem;
+  margin-top: 4px;
+}
+
+.about-content { padding-right: 16px; }
+.about-content .eyebrow { margin-bottom: 16px; }
+.about-content h2 { margin-bottom: 20px; }
+.about-content > p { margin-bottom: 32px; line-height: 1.8; }
+
+.about-features {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.about-feature {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+.about-feature-icon {
+  width: 40px; height: 40px;
+  background: var(--mint-pale);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.about-feature-icon svg { width: 18px; height: 18px; color: var(--turq); }
+.about-feature-text h4 { font-size: 0.88rem; margin-bottom: 2px; }
+.about-feature-text p { font-size: 0.82rem; color: var(--gray-400); }
+
+/* ===== PROCESSES ===== */
+#processos {
+  background: var(--ivory);
+  padding: 96px 0;
+}
+.section-header {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 64px;
+}
+.section-header .eyebrow { margin-bottom: 12px; }
+.section-header h2 { margin-bottom: 16px; }
+.section-header p { color: var(--gray-400); line-height: 1.75; }
+
+.processes-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.process-card {
+  background: var(--white);
+  border-radius: var(--radius-md);
+  padding: 28px 24px;
+  border: 1px solid var(--gray-200);
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
+}
+.process-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--turq);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--transition);
+}
+.process-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-card); }
+.process-card:hover::before { transform: scaleX(1); }
+
+.process-num {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--turq);
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+}
+.process-icon {
+  width: 44px; height: 44px;
+  background: var(--mint-pale);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+.process-icon svg { width: 22px; height: 22px; color: var(--turq); }
+.process-card h3 { font-size: 0.95rem; margin-bottom: 8px; }
+.process-card p { font-size: 0.82rem; color: var(--gray-400); line-height: 1.65; }
+
+/* ===== DOCUMENT SECTION ===== */
+#documento {
+  background: var(--charcoal);
+  padding: 96px 0;
+  position: relative;
+  overflow: hidden;
+}
+#documento::before {
+  content: '';
+  position: absolute;
+  top: -100px; right: -100px;
+  width: 400px; height: 400px;
+  border-radius: 50%;
+  border: 80px solid rgba(92,204,197,0.05);
+}
+
+.doc-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.doc-content .eyebrow { margin-bottom: 16px; }
+.doc-content h2 { color: var(--white); margin-bottom: 20px; }
+.doc-content p { color: rgba(255,255,255,0.55); line-height: 1.8; margin-bottom: 32px; }
+
+.doc-meta-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 36px;
+}
+.doc-meta-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius-sm);
+}
+.doc-meta-label {
+  font-size: 0.72rem;
+  color: var(--turq);
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  min-width: 120px;
+}
+.doc-meta-value {
+  font-size: 0.82rem;
+  color: var(--white);
+  font-family: var(--font-mono);
+}
+
+.doc-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: 0 24px 80px rgba(0,0,0,0.4);
+}
+.doc-card-header {
+  background: var(--turq);
+  padding: 24px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.doc-card-header h4 {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--charcoal);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+.doc-card-header .mono {
+  font-size: 0.7rem;
+  color: rgba(26,26,26,0.6);
+}
+.doc-card-body { padding: 28px; }
+
+.doc-preview-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--gray-200);
+  font-size: 0.8rem;
+}
+.doc-preview-row:last-of-type { border-bottom: none; }
+.doc-preview-row .key { color: var(--gray-400); }
+.doc-preview-row .val { font-weight: 600; color: var(--charcoal); font-family: var(--font-mono); font-size: 0.78rem; }
+.doc-preview-row .val.pass {
+  color: var(--green-soft);
+  background: rgba(46,125,90,0.08);
+  padding: 2px 8px;
+  border-radius: 100px;
+}
+
+.doc-card-footer {
+  padding: 20px 28px;
+  border-top: 1px solid var(--gray-200);
+  background: var(--ivory);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.doc-card-footer span { font-size: 0.72rem; color: var(--gray-400); }
+
+/* ===== VERIFICATION SECTION ===== */
+#verificar {
+  background: var(--ivory-deep);
+  padding: 80px 0;
+}
+.verify-wrap {
+  max-width: 640px;
+  margin: 0 auto;
+  text-align: center;
+}
+.verify-wrap .eyebrow { margin-bottom: 12px; }
+.verify-wrap h2 { margin-bottom: 16px; }
+.verify-wrap p { color: var(--gray-400); margin-bottom: 40px; }
+
+.verify-form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.verify-input {
+  flex: 1;
+  padding: 14px 20px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  background: var(--white);
+  color: var(--charcoal);
+  transition: border-color var(--transition);
+  outline: none;
+  letter-spacing: 0.05em;
+}
+.verify-input:focus { border-color: var(--turq); }
+.verify-input::placeholder { color: var(--gray-400); font-family: var(--font-body); letter-spacing: 0; }
+
+.verify-result {
+  padding: 16px 24px;
+  border-radius: var(--radius-sm);
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: none;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  margin-top: 16px;
+}
+.verify-result.success {
+  background: rgba(46,125,90,0.08);
+  border: 1px solid rgba(46,125,90,0.2);
+  color: var(--green-soft);
+  display: flex;
+}
+.verify-result.error {
+  background: rgba(192,57,43,0.07);
+  border: 1px solid rgba(192,57,43,0.2);
+  color: var(--red-soft);
+  display: flex;
+}
+.verify-result svg { width: 18px; height: 18px; flex-shrink: 0; }
+
+.verify-notice {
+  margin-top: 20px;
+  font-size: 0.75rem;
+  color: var(--gray-400);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+.verify-notice svg { width: 14px; height: 14px; }
+
+/* ===== HOW TO READ ===== */
+#como-ler {
+  background: var(--white);
+  padding: 96px 0;
+}
+.read-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 64px;
+}
+.read-card {
+  padding: 32px 28px;
+  border-radius: var(--radius-md);
+  background: var(--ivory);
+  border: 1px solid var(--gray-200);
+  transition: var(--transition);
+}
+.read-card:hover { box-shadow: var(--shadow-card); transform: translateY(-3px); }
+.read-card-num {
+  font-family: var(--font-mono);
+  font-size: 2rem;
+  font-weight: 300;
+  color: var(--mint-pale);
+  line-height: 1;
+  margin-bottom: 16px;
+}
+.read-card h3 { font-size: 0.95rem; margin-bottom: 8px; }
+.read-card p { font-size: 0.82rem; color: var(--gray-400); line-height: 1.65; }
+
+/* ===== PHOTO GALLERY ===== */
+#mapeamento {
+  background: var(--ivory);
+  padding: 96px 0;
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 48px;
+}
+.gallery-item {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--charcoal);
+  position: relative;
+  cursor: zoom-in;
+  transition: var(--transition);
+}
+.gallery-item:hover { transform: scale(1.02); box-shadow: var(--shadow-card); }
+.gallery-item:nth-child(1) { grid-column: span 2; }
+.gallery-item:nth-child(4) { grid-column: span 2; }
+
+/* [FOTO] Substitua por imagens reais */
+.gallery-placeholder {
+  aspect-ratio: 16/10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: rgba(255,255,255,0.25);
+  background: linear-gradient(135deg, #15211F 0%, #243431 100%);
+}
+.gallery-item:nth-child(1) .gallery-placeholder { aspect-ratio: 21/10; }
+.gallery-item:nth-child(4) .gallery-placeholder { aspect-ratio: 21/10; }
+.gallery-placeholder svg { width: 40px; height: 40px; }
+.gallery-placeholder span { font-size: 0.72rem; letter-spacing: 0.1em; }
+
+.gallery-caption {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 16px 20px 20px;
+  background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+  color: var(--white);
+}
+.gallery-caption .step {
+  font-size: 0.6rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  color: var(--turq);
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+.gallery-caption h4 {
+  font-size: 0.88rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  text-transform: none;
+  letter-spacing: 0;
+}
+.gallery-caption p {
+  font-size: 0.72rem;
+  color: rgba(255,255,255,0.55);
+  margin-top: 2px;
+}
+
+/* ===== WHERE ANALYSIS HAPPENS ===== */
+#laboratorio {
+  background: var(--charcoal);
+  padding: 96px 0;
+}
+.lab-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.lab-content .eyebrow { margin-bottom: 16px; }
+.lab-content h2 { color: var(--white); margin-bottom: 20px; }
+.lab-content > p { color: rgba(255,255,255,0.55); line-height: 1.8; margin-bottom: 40px; }
+
+.lab-items {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.lab-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+.lab-item-icon {
+  width: 44px; height: 44px;
+  background: rgba(92,204,197,0.12);
+  border: 1px solid rgba(92,204,197,0.25);
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.lab-item-icon svg { width: 20px; height: 20px; color: var(--turq); }
+.lab-item-text h4 { color: var(--white); font-size: 0.9rem; margin-bottom: 4px; }
+.lab-item-text p { color: rgba(255,255,255,0.45); font-size: 0.8rem; }
+
+.lab-visual {
+  position: relative;
+}
+/* [FOTO] Substitua pelo conteúdo do laboratório */
+.lab-img {
+  width: 100%;
+  aspect-ratio: 4/5;
+  background: linear-gradient(135deg, #243431 0%, #15211F 100%);
+  border-radius: var(--radius-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 12px;
+  color: rgba(255,255,255,0.2);
+  position: relative;
+  overflow: hidden;
+}
+.lab-img::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 80%, rgba(92,204,197,0.08) 0%, transparent 70%);
+}
+.lab-img svg { width: 48px; height: 48px; }
+.lab-img span { font-size: 0.72rem; letter-spacing: 0.1em; }
+
+.lab-badge {
+  position: absolute;
+  top: 24px;
+  right: -16px;
+  background: var(--turq);
+  color: var(--charcoal);
+  padding: 14px 20px;
+  border-radius: var(--radius-md);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  text-align: center;
+  line-height: 1.3;
+  box-shadow: var(--shadow-turq);
+}
+
+/* ===== PROFESSIONAL LOGIN ===== */
+#profissionais {
+  background: var(--ivory-deep);
+  padding: 96px 0;
+}
+.login-wrap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+.login-info .eyebrow { margin-bottom: 16px; }
+.login-info h2 { margin-bottom: 20px; }
+.login-info > p { color: var(--gray-400); line-height: 1.8; margin-bottom: 32px; }
+.login-info ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.login-info ul li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  color: var(--charcoal-mid);
+}
+.login-info ul li::before {
+  content: '';
+  width: 6px; height: 6px;
+  background: var(--turq);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.login-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 40px;
+  box-shadow: var(--shadow-card);
+  border: 1px solid var(--gray-200);
+}
+.login-card h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+.login-card > p {
+  font-size: 0.82rem;
+  color: var(--gray-400);
+  margin-bottom: 28px;
+}
+
+.form-group { margin-bottom: 16px; }
+.form-label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 6px;
+  letter-spacing: 0.02em;
+}
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--charcoal);
+  background: var(--ivory);
+  outline: none;
+  transition: border-color var(--transition);
+}
+.form-input:focus { border-color: var(--turq); background: var(--white); }
+
+.form-forgot {
+  text-align: right;
+  margin-bottom: 24px;
+  font-size: 0.75rem;
+  color: var(--turq);
+  font-weight: 500;
+}
+
+/* [AUTH] Conecte aqui com seu sistema de autenticação real */
+/* O handler está em: <script> → handleLogin() */
+.btn-login {
+  width: 100%;
+  padding: 14px;
+  background: var(--charcoal);
+  color: var(--white);
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: var(--transition);
+}
+.btn-login:hover { background: var(--turq); color: var(--charcoal); }
+
+.login-divider {
+  text-align: center;
+  margin: 20px 0;
+  font-size: 0.75rem;
+  color: var(--gray-400);
+  position: relative;
+}
+.login-divider::before, .login-divider::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  width: calc(50% - 24px);
+  height: 1px;
+  background: var(--gray-200);
+}
+.login-divider::before { left: 0; }
+.login-divider::after { right: 0; }
+
+.login-secure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.72rem;
+  color: var(--gray-400);
+  margin-top: 20px;
+}
+.login-secure svg { width: 12px; height: 12px; }
+
+.login-message {
+  padding: 12px 16px;
+  border-radius: var(--radius-sm);
+  font-size: 0.82rem;
+  font-weight: 500;
+  display: none;
+  margin-top: 12px;
+}
+.login-message.error {
+  background: rgba(192,57,43,0.08);
+  border: 1px solid rgba(192,57,43,0.2);
+  color: var(--red-soft);
+  display: block;
+}
+.login-message.success {
+  background: rgba(46,125,90,0.08);
+  border: 1px solid rgba(46,125,90,0.2);
+  color: var(--green-soft);
+  display: block;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  background: var(--charcoal);
+  padding: 64px 0 32px;
+}
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+  margin-bottom: 48px;
+}
+.footer-brand p {
+  color: rgba(255,255,255,0.4);
+  font-size: 0.82rem;
+  margin-top: 16px;
+  line-height: 1.75;
+  max-width: 280px;
+}
+.footer-col h4 {
+  color: var(--white);
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+  font-family: var(--font-body);
+}
+.footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+.footer-col ul li a {
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.4);
+  transition: color var(--transition);
+}
+.footer-col ul li a:hover { color: var(--turq); }
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.08);
+  padding-top: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.25);
+}
+
+/* ===== DOWNLOAD PROTEGIDO POR SENHA ===== */
+.download-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(21,33,31,0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+.download-modal.open {
+  display: flex;
+  opacity: 1;
+}
+.download-modal-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  width: 100%;
+  max-width: 440px;
+  padding: 40px 36px 32px;
+  box-shadow: 0 32px 90px rgba(21,33,31,0.45);
+  transform: translateY(16px) scale(0.98);
+  transition: transform 0.25s cubic-bezier(0.4,0,0.2,1);
+  position: relative;
+}
+.download-modal.open .download-modal-card { transform: none; }
+
+.download-modal-close {
+  position: absolute;
+  top: 18px; right: 18px;
+  width: 34px; height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--gray-400);
+  transition: var(--transition);
+}
+.download-modal-close:hover { background: var(--ivory-deep); color: var(--charcoal); }
+.download-modal-close svg { width: 18px; height: 18px; }
+
+.download-modal-icon {
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: var(--mint-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 22px;
+}
+.download-modal-icon svg { width: 28px; height: 28px; color: var(--turq); }
+
+.download-modal-card h3 {
+  font-size: 1.35rem;
+  margin-bottom: 8px;
+}
+.download-modal-card > p {
+  font-size: 0.85rem;
+  color: var(--gray-400);
+  line-height: 1.6;
+  margin-bottom: 24px;
+}
+
+.download-file-tag {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+  background: var(--ivory);
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-sm);
+  margin-bottom: 22px;
+}
+.download-file-tag svg { width: 20px; height: 20px; color: var(--turq); flex-shrink: 0; }
+.download-file-tag .name {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  word-break: break-all;
+  line-height: 1.3;
+}
+.download-file-tag .meta {
+  font-size: 0.7rem;
+  color: var(--gray-400);
+}
+
+.download-modal label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--charcoal);
+  margin-bottom: 6px;
+}
+.download-modal-input {
+  width: 100%;
+  padding: 13px 16px;
+  border: 1.5px solid var(--gray-200);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.92rem;
+  color: var(--charcoal);
+  background: var(--ivory);
+  outline: none;
+  transition: border-color var(--transition);
+}
+.download-modal-input:focus { border-color: var(--turq); background: var(--white); }
+
+.download-modal-message {
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-top: 12px;
+  display: none;
+  align-items: center;
+  gap: 8px;
+}
+.download-modal-message svg { width: 16px; height: 16px; flex-shrink: 0; }
+.download-modal-message.error { color: var(--red-soft); display: flex; }
+.download-modal-message.success { color: var(--green-soft); display: flex; }
+
+.download-modal-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 24px;
+}
+.download-modal-actions .btn { flex: 1; justify-content: center; }
+.btn-ghost {
+  background: transparent;
+  color: var(--charcoal);
+  border: 1.5px solid var(--gray-200);
+}
+.btn-ghost:hover { background: var(--ivory-deep); }
+
+.download-modal-secure {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.7rem;
+  color: var(--gray-400);
+  margin-top: 20px;
+}
+.download-modal-secure svg { width: 12px; height: 12px; }
+
+/* ===== SCROLL REVEAL ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 1024px) {
+  .processes-grid { grid-template-columns: repeat(2, 1fr); }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  h1 { font-size: 2rem; }
+  .section { padding: 64px 0; }
+
+  #hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+  .hero-visual { display: none; }
+  .hero-content {
+    padding: 96px 24px 64px;
+  }
+
+  .about-grid,
+  .doc-grid,
+  .lab-grid,
+  .login-wrap {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  .about-stat-card { bottom: -16px; right: -8px; }
+
+  .read-grid { grid-template-columns: 1fr; }
+  .processes-grid { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr; }
+  .gallery-item:nth-child(1),
+  .gallery-item:nth-child(4) { grid-column: span 1; }
+
+  .authority-strip-inner { gap: 20px; }
+
+  .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+
+  .nav-links { display: none; }
+  .nav-mobile-toggle { display: flex; }
+
+  .verify-form { flex-direction: column; }
+  .hero-actions { flex-direction: column; }
+  .hero-actions .btn { justify-content: center; }
+
+  .lab-badge { right: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav id="main-nav">
+  <div class="nav-inner">
+    <!-- [LOGO] Logo oficial Angel Piercings Atacado (carregado do site oficial).
+         Para hospedar localmente: baixe a imagem e troque o src por "logo.png" -->
+    <a href="#" class="nav-logo" aria-label="Angel Piercings Atacado — página inicial">
+      <img
+        src="https://cdn.awsli.com.br/2212/2212107/logo/sem-t-tulo-1-bw6cy6h2bo.png"
+        alt="Angel Piercings Atacado"
+        class="nav-logo-img"
+      >
+    </a>
+
+    <ul class="nav-links">
+      <li><a href="#sobre">Sobre</a></li>
+      <li><a href="#processos">Processos</a></li>
+      <li><a href="#documento">Documento</a></li>
+      <li><a href="#como-ler">Como Ler</a></li>
+      <li><a href="#verificar">Verificar</a></li>
+      <li><a href="#profissionais" class="nav-cta">Área Profissional</a></li>
+    </ul>
+
+    <button class="nav-mobile-toggle" onclick="toggleMobileNav()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">
+      <span class="eyebrow">Relatório Técnico de Análise</span>
+    </div>
+
+    <h1 class="hero-title display">
+      Titânio ASTM F136.<br>
+      <em>Análise que<br>documenta o real.</em>
+    </h1>
+
+    <p class="hero-subtitle">
+      Cada peça é submetida a ensaios laboratoriais com metodologia padronizada, rastreabilidade de amostra e registro técnico completo — do recebimento à emissão do relatório.
+    </p>
+
+    <div class="hero-actions">
+      <!-- [PDF_URL] O caminho do PDF é definido na constante PDF_DOCUMENTO no <script>.
+           O download agora é protegido por senha (ver abrirDownloadProtegido). -->
+      <button type="button" class="btn btn-primary" onclick="abrirDownloadProtegido()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Baixar Relatório Oficial
+      </button>
+      <a href="#como-ler" class="btn btn-outline">
+        Como Ler o Laudo
+      </a>
+      <a href="#profissionais" class="btn btn-outline">
+        Área Profissional
+      </a>
+    </div>
+
+    <div class="hero-badges">
+      <div class="badge"><div class="badge-dot"></div> Titânio ASTM F136</div>
+      <div class="badge"><div class="badge-dot"></div> Rastreabilidade Garantida</div>
+      <div class="badge"><div class="badge-dot"></div> +10 anos no mercado</div>
+    </div>
+  </div>
+
+  <!-- VISUAL / SIGNATURE ELEMENT -->
+  <div class="hero-visual">
+    <div class="hero-visual-bg"></div>
+
+    <div class="ring-scene">
+      <div class="ring-orbit"></div>
+      <div class="ring-orbit"></div>
+      <div class="ring-orbit"></div>
+
+      <!-- Piercing ring SVG — o elemento de assinatura desta página -->
+      <div class="piercing-ring-wrap">
+        <svg class="piercing-ring-svg" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Outer ring -->
+          <circle cx="100" cy="100" r="80" stroke="#5CCCC5" stroke-width="10" opacity="0.9"/>
+          <!-- Inner highlight -->
+          <circle cx="100" cy="100" r="80" stroke="url(#gold-grad)" stroke-width="10" stroke-dasharray="80 420" stroke-dashoffset="0" stroke-linecap="round"/>
+          <!-- Ball closure -->
+          <circle cx="100" cy="20" r="10" fill="#5CCCC5"/>
+          <circle cx="100" cy="20" r="5" fill="#8FE0DA"/>
+          <!-- Shine arcs -->
+          <path d="M 42 60 A 70 70 0 0 1 158 60" stroke="rgba(255,255,255,0.08)" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <defs>
+            <linearGradient id="gold-grad" x1="0" y1="0" x2="200" y2="200" gradientUnits="userSpaceOnUse">
+              <stop offset="0%" stop-color="#8FE0DA"/>
+              <stop offset="50%" stop-color="#5CCCC5"/>
+              <stop offset="100%" stop-color="#1F6E68"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Mini document preview -->
+    <div class="hero-doc-card">
+      <span class="mono">NO. PL2601369 REV. 0</span>
+      <strong>Relatório de Ensaios</strong>
+      <p>Emitido em 01 Jun 2026 — Piracicaba, SP</p>
+      <div class="doc-status">ATENDE A ESPECIFICAÇÃO</div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AUTHORITY STRIP ===== -->
+<div class="authority-strip">
+  <div class="authority-strip-inner">
+    <div class="authority-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0 1 12 2.944a11.955 11.955 0 0 1-8.618 3.04A12.02 12.02 0 0 0 3 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+      Processos Padronizados
+    </div>
+    <div class="authority-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+      Rastreabilidade de Amostra
+    </div>
+    <div class="authority-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+      Ensaios com Metodologia ASTM
+    </div>
+    <div class="authority-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      Documentação Técnica Completa
+    </div>
+    <div class="authority-item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      +10 Anos de Mercado
+    </div>
+  </div>
+</div>
+
+<!-- ===== SOBRE ===== -->
+<section id="sobre" class="section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-visual reveal">
+        <div class="about-img-main">
+          <!-- [FOTO] Substitua por: <img src="foto-laboratorio.jpg" alt="Laboratório Angel Piercings"> -->
+          <div class="about-img-placeholder">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+            <span>Adicione aqui uma foto do laboratório ou da empresa</span>
+          </div>
+        </div>
+        <div class="about-stat-card">
+          <div class="num">10+</div>
+          <p>Anos de atuação no mercado de piercings profissionais</p>
+        </div>
+      </div>
+
+      <div class="about-content reveal">
+        <p class="eyebrow">Angel Piercings Atacado</p>
+        <h2>Fornecedor técnico para profissionais do setor</h2>
+        <p>Sediada em Limeira/SP, a Angel Piercings Atacado atua há mais de uma década no fornecimento exclusivo para body piercers e estúdios. Trabalhamos com joias em aço cirúrgico, titânio e ouro, priorizando conformidade técnica, segurança e rastreabilidade de material.</p>
+
+        <div class="about-features">
+          <div class="about-feature">
+            <div class="about-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0 1 12 2.944a11.955 11.955 0 0 1-8.618 3.04A12.02 12.02 0 0 0 3 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+            </div>
+            <div class="about-feature-text">
+              <h4>Acesso exclusivo para profissionais</h4>
+              <p>Cadastro liberado mediante comprovante de atuação como body piercer ou estúdio</p>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93A10 10 0 0 0 4.93 19.07"/><path d="M4.93 4.93A10 10 0 0 1 19.07 19.07"/></svg>
+            </div>
+            <div class="about-feature-text">
+              <h4>Materiais com rastreabilidade técnica</h4>
+              <p>Titânio grau implante (ASTM F136), aço cirúrgico e ouro com documentação de ensaio</p>
+            </div>
+          </div>
+          <div class="about-feature">
+            <div class="about-feature-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div class="about-feature-text">
+              <h4>Portfólio para venda atacado</h4>
+              <p>Do material para procedimento às joias modernas e delicadas — tudo em um fornecedor</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROCESSOS DE ANÁLISE ===== -->
+<section id="processos">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="eyebrow">Processos Técnicos</p>
+      <h2>Etapas do registro de análise</h2>
+      <p>Cada relatório emitido segue um fluxo técnico documentado, com metodologia padronizada, registro de condições ambientais e conclusão por responsável técnico habilitado.</p>
+    </div>
+
+    <div class="processes-grid">
+      <!-- Card 1 -->
+      <div class="process-card reveal">
+        <div class="process-num">01</div>
+        <div class="process-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        </div>
+        <h3>Inspeção Visual</h3>
+        <p>Avaliação macroscópica da amostra: verificação de integridade, acabamento superficial e conformidade dimensional preliminar.</p>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="process-card reveal">
+        <div class="process-num">02</div>
+        <div class="process-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+        </div>
+        <h3>Mapeamento Fotográfico</h3>
+        <p>Registro visual completo da peça antes, durante e após os ensaios. Imagens com identificação de etapa e legenda técnica.</p>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="process-card reveal">
+        <div class="process-num">03</div>
+        <div class="process-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+        </div>
+        <h3>Conferência de Medidas</h3>
+        <p>Verificação dimensional com base nos dados declarados pelo cliente: espessura e comprimento conferidos instrumentalmente.</p>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="process-card reveal">
+        <div class="process-num">04</div>
+        <div class="process-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <h3>Análise de Composição</h3>
+        <p>Determinação de carbono, enxofre, hidrogênio, nitrogênio, oxigênio e elementos de liga via combustão e espectrômetro XRF, seguindo normas ASTM.</p>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="process-card reveal">
+        <div class="process-num">05</div>
+        <div class="process-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+        </div>
+        <h3>Registro de Condições</h3>
+        <p>Todas as análises são executadas com temperatura ambiente registrada (tipicamente 22 °C) e período de análise documentado por ensaio.</p>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="process-card reveal">
+        <div class="process-num">06</div>
+        <div class="process-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <h3>Revisão e Parecer Técnico</h3>
+        <p>O documento é revisado por coordenador e técnico sênior antes da emissão — com assinatura dos responsáveis e registro final.</p>
+      </div>
+
+      <!-- Card 7 -->
+      <div class="process-card reveal">
+        <div class="process-num">07</div>
+        <div class="process-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        </div>
+        <h3>Identificação de Inconformidades</h3>
+        <p>Resultados fora do intervalo analítico são marcados com símbolo # e acompanhados da nota de tolerância aplicável à norma.</p>
+      </div>
+
+      <!-- Card 8 -->
+      <div class="process-card reveal">
+        <div class="process-num">08</div>
+        <div class="process-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h3>Emissão do Relatório</h3>
+        <p>O relatório final é numerado, datado e emitido com código rastreável, declarações de conformidade e legenda de símbolos utilizados.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DOCUMENTO / DOWNLOAD ===== -->
+<section id="documento">
+  <div class="container">
+    <div class="doc-grid">
+      <div class="doc-content reveal">
+        <p class="eyebrow">Relatório de Ensaios</p>
+        <h2>Acesse o documento técnico oficial</h2>
+        <p>O relatório reúne os resultados de todos os ensaios realizados sobre a amostra, com número de identificação único, metodologia aplicada, especificação de referência e conclusão de conformidade.</p>
+
+        <div class="doc-meta-list">
+          <div class="doc-meta-item">
+            <span class="doc-meta-label">No. Relatório</span>
+            <span class="doc-meta-value">PL2601369 Rev. 0</span>
+          </div>
+          <div class="doc-meta-item">
+            <span class="doc-meta-label">Data de Emissão</span>
+            <span class="doc-meta-value">01 Junho 2026</span>
+          </div>
+          <div class="doc-meta-item">
+            <span class="doc-meta-label">Material</span>
+            <span class="doc-meta-value">Titânio ASTM F136</span>
+          </div>
+          <div class="doc-meta-item">
+            <span class="doc-meta-label">Item Analisado</span>
+            <span class="doc-meta-value">Piercing — Ø 1,6mm × 14mm</span>
+          </div>
+          <div class="doc-meta-item">
+            <span class="doc-meta-label">Responsável Técnico</span>
+            <span class="doc-meta-value">Maicon Oliveira / Jeferson Passarinho</span>
+          </div>
+        </div>
+
+        <!-- [PDF_URL] Download protegido por senha — abre o modal de verificação -->
+        <button type="button" class="btn btn-gold" onclick="abrirDownloadProtegido()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Baixar PDF Oficial
+        </button>
+      </div>
+
+      <!-- Document preview card -->
+      <div class="doc-card reveal">
+        <div class="doc-card-header">
+          <div>
+            <h4>Relatório de Ensaios</h4>
+            <span class="mono">No. PL2601369</span>
+          </div>
+          <div style="text-align:right">
+            <div style="font-size:0.6rem;color:rgba(26,26,26,0.5);font-family:'DM Mono',monospace;letter-spacing:0.05em">01 JUN 2026</div>
+          </div>
+        </div>
+
+        <div class="doc-card-body">
+          <div class="doc-preview-row">
+            <span class="key">Carbono (C)</span>
+            <span class="val pass">0,016% — Atende</span>
+          </div>
+          <div class="doc-preview-row">
+            <span class="key">Hidrogênio (H)</span>
+            <span class="val pass">0,013% — Atende*</span>
+          </div>
+          <div class="doc-preview-row">
+            <span class="key">Nitrogênio (N)</span>
+            <span class="val pass">0,006% — Atende</span>
+          </div>
+          <div class="doc-preview-row">
+            <span class="key">Oxigênio (O)</span>
+            <span class="val pass">0,13% — Atende</span>
+          </div>
+          <div class="doc-preview-row">
+            <span class="key">Alumínio (Al)</span>
+            <span class="val pass">5,889% — Atende</span>
+          </div>
+          <div class="doc-preview-row">
+            <span class="key">Vanádio (V)</span>
+            <span class="val pass">3,769% — Atende</span>
+          </div>
+          <div class="doc-preview-row">
+            <span class="key">Ferro (Fe)</span>
+            <span class="val pass">0,085% — Atende</span>
+          </div>
+          <div class="doc-preview-row">
+            <span class="key">Titânio (Ti)</span>
+            <span class="val">BASE</span>
+          </div>
+
+          <p style="font-size:0.68rem;color:#9E9E9E;margin-top:16px;line-height:1.5">
+            * H apresenta tolerância de 0,0020 conforme tabela 2 da norma ASTM F136. Conclusão: Atende a Especificação.
+          </p>
+        </div>
+
+        <div class="doc-card-footer">
+          <span>Verifique se o código do documento corresponde ao registro oficial.</span>
+          <a href="#verificar" style="font-size:0.75rem;font-weight:600;color:var(--turq)">Verificar →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VERIFICAÇÃO DE CÓDIGO ===== -->
+<section id="verificar">
+  <div class="container">
+    <div class="verify-wrap">
+      <p class="eyebrow reveal">Verificação Documental</p>
+      <h2 class="reveal">Confirme o código do relatório</h2>
+      <p class="reveal">Digite o número do relatório para verificar se o documento corresponde a um registro técnico emitido. Confira sempre se os dados impressos coincidem com o registro consultado.</p>
+
+      <div class="verify-form reveal">
+        <input
+          type="text"
+          class="verify-input"
+          id="verify-input"
+          placeholder="Ex.: PL2601369"
+          maxlength="20"
+        >
+        <button class="btn btn-primary" onclick="verificarCodigo()">
+          Verificar
+        </button>
+      </div>
+
+      <div class="verify-result" id="verify-result"></div>
+
+      <p class="verify-notice reveal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+        Esta verificação é demonstrativa. Para validação oficial, entre em contato diretamente com a empresa.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== COMO LER UM LAUDO ===== -->
+<section id="como-ler">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="eyebrow">Guia de Leitura</p>
+      <h2>Como interpretar um relatório de ensaios</h2>
+      <p>Um relatório técnico reúne informações estruturadas em blocos. Entender cada campo é fundamental para avaliar corretamente os resultados da análise.</p>
+    </div>
+
+    <div class="read-grid">
+      <div class="read-card reveal">
+        <div class="read-card-num">01</div>
+        <h3>Identificação da Amostra</h3>
+        <p>Número de identificação (SGS ID), item e descrição da peça submetida ao ensaio. Garante que os resultados estão vinculados à amostra correta.</p>
+      </div>
+      <div class="read-card reveal">
+        <div class="read-card-num">02</div>
+        <h3>Rastreabilidade do Material</h3>
+        <p>Campo "Rastreabilidade" indica a norma de referência do material — no caso, TITANIO ASTM F136, norma internacional para titânio grau implante.</p>
+      </div>
+      <div class="read-card reveal">
+        <div class="read-card-num">03</div>
+        <h3>Dimensões e Material</h3>
+        <p>Dados fornecidos pelo cliente: espessura, comprimento e tipo de peça. Esses dados são declaratórios e constam no relatório para identificação.</p>
+      </div>
+      <div class="read-card reveal">
+        <div class="read-card-num">04</div>
+        <h3>Metodologia Aplicada</h3>
+        <p>Cada ensaio informa a norma ASTM seguida (ex.: ASTM E 1019:2018 para carbono e enxofre). A metodologia determina como os valores foram obtidos.</p>
+      </div>
+      <div class="read-card reveal">
+        <div class="read-card-num">05</div>
+        <h3>Especificação de Referência</h3>
+        <p>Norma usada como critério de aceitação (ex.: ASTM F136-13). Os resultados são comparados a essa especificação para gerar a conclusão.</p>
+      </div>
+      <div class="read-card reveal">
+        <div class="read-card-num">06</div>
+        <h3>Resultado e Conclusão</h3>
+        <p>Cada elemento analisado apresenta valor medido, limite especificado e conclusão. "Atende a Especificação" indica conformidade com a norma.</p>
+      </div>
+      <div class="read-card reveal">
+        <div class="read-card-num">07</div>
+        <h3>Símbolo # — Atenção</h3>
+        <p>O símbolo # indica que o resultado está fora do intervalo analítico estudado para o método, porém dentro da tolerância aplicável à norma (como no caso do Hidrogênio).</p>
+      </div>
+      <div class="read-card reveal">
+        <div class="read-card-num">08</div>
+        <h3>Legenda de Símbolos</h3>
+        <p>O relatório inclui legenda completa: "-" (não analisado), "--" (análise em processo), "NI" (não informado), "§" (fora do escopo de acreditação), entre outros.</p>
+      </div>
+      <div class="read-card reveal">
+        <div class="read-card-num">09</div>
+        <h3>Assinatura dos Responsáveis</h3>
+        <p>O documento é válido somente com a assinatura do Lab Coordinator e do Técnico de Laboratório Sênior. Verifique a presença de ambas as assinaturas no documento original.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALERIA DE MAPEAMENTO ===== -->
+<section id="mapeamento">
+  <div class="container">
+    <div class="section-header reveal">
+      <p class="eyebrow">Registro Visual</p>
+      <h2>Mapeamento fotográfico da peça</h2>
+      <p>O registro fotográfico compõe parte essencial do processo técnico. Cada imagem é identificada por etapa e acompanha observação descritiva.</p>
+    </div>
+
+    <!-- [FOTO] Substitua os placeholders pelas imagens reais do mapeamento -->
+    <div class="gallery-grid">
+      <div class="gallery-item reveal">
+        <div class="gallery-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
+          <span>FOTO GERAL</span>
+        </div>
+        <div class="gallery-caption">
+          <div class="step">Etapa 01</div>
+          <h4>Vista geral da peça</h4>
+          <p>Piercing titanio ASTM F136 — Ø 1,6mm × 14mm</p>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <div class="gallery-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <span>DETALHE FRONTAL</span>
+        </div>
+        <div class="gallery-caption">
+          <div class="step">Etapa 02</div>
+          <h4>Detalhe parte frontal</h4>
+          <p>Superfície e acabamento externo</p>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <div class="gallery-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
+          <span>DETALHE TRASEIRO</span>
+        </div>
+        <div class="gallery-caption">
+          <div class="step">Etapa 03</div>
+          <h4>Detalhe parte traseira</h4>
+          <p>Fechamento e gravações internas</p>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <div class="gallery-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+          <span>MARCAS E GRAVAÇÕES</span>
+        </div>
+        <div class="gallery-caption">
+          <div class="step">Etapa 04</div>
+          <h4>Marcas e gravações identificadoras</h4>
+          <p>Código de lote e identificação do fabricante</p>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <div class="gallery-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          <span>PONTO DE ANÁLISE</span>
+        </div>
+        <div class="gallery-caption">
+          <div class="step">Etapa 05</div>
+          <h4>Ponto de extração para ensaio</h4>
+          <p>Registro do ponto amostrado para análise via XRF e combustão</p>
+        </div>
+      </div>
+
+      <div class="gallery-item reveal">
+        <div class="gallery-placeholder">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <span>IMAGEM COM LEGENDA</span>
+        </div>
+        <div class="gallery-caption">
+          <div class="step">Etapa 06</div>
+          <h4>Registro técnico final</h4>
+          <p>Imagem com legenda e anotações do responsável técnico</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ONDE É REALIZADO ===== -->
+<section id="laboratorio">
+  <div class="container">
+    <div class="lab-grid">
+      <div class="lab-content reveal">
+        <p class="eyebrow">Onde Ocorre a Análise</p>
+        <h2>Ambiente controlado e equipado para ensaios técnicos</h2>
+        <p>Os ensaios são realizados em laboratório técnico com controle de temperatura ambiente, equipamentos calibrados e procedimentos documentados passo a passo.</p>
+
+        <div class="lab-items">
+          <div class="lab-item">
+            <div class="lab-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+            </div>
+            <div class="lab-item-text">
+              <h4>Sala técnica com temperatura controlada</h4>
+              <p>Todos os ensaios são realizados sob condições ambientais registradas — tipicamente 22 °C</p>
+            </div>
+          </div>
+
+          <div class="lab-item">
+            <div class="lab-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+            </div>
+            <div class="lab-item-text">
+              <h4>Espectrômetro de Fluorescência de Raios X (XRF)</h4>
+              <p>Equipamento para determinação quantitativa de composição química sem destruição da amostra</p>
+            </div>
+          </div>
+
+          <div class="lab-item">
+            <div class="lab-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+            </div>
+            <div class="lab-item-text">
+              <h4>Analisadores por combustão</h4>
+              <p>Para determinação de C, S, H, N e O conforme metodologias ASTM E 1019, E 1447 e E 1409</p>
+            </div>
+          </div>
+
+          <div class="lab-item">
+            <div class="lab-item-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div class="lab-item-text">
+              <h4>Profissionais responsáveis qualificados</h4>
+              <p>Coordenador de laboratório e técnico sênior com assinatura de responsabilidade técnica no documento</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="lab-visual reveal">
+        <!-- [FOTO] Substitua pelo caminho real da foto do laboratório -->
+        <div class="lab-img">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><path d="M18 20V10M12 20V4M6 20v-6"/></svg>
+          <span>FOTO DO LABORATÓRIO</span>
+        </div>
+        <div class="lab-badge">
+          Titânio<br>Grau<br>Implante
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROFISSIONAIS / LOGIN ===== -->
+<section id="profissionais">
+  <div class="container">
+    <div class="login-wrap">
+      <div class="login-info reveal">
+        <p class="eyebrow">Área Restrita</p>
+        <h2>Acesso exclusivo para profissionais do setor</h2>
+        <p>O cadastro na Angel Piercings Atacado é liberado somente para body piercers e estúdios devidamente comprovados. Após aprovação do cadastro, o profissional tem acesso ao portfólio completo, preços de atacado e documentação técnica dos materiais.</p>
+
+        <ul>
+          <li>Catálogo completo de joias em titânio, aço cirúrgico e ouro</li>
+          <li>Documentação técnica e relatórios de ensaio disponíveis</li>
+          <li>Preços e condições exclusivos para atacado</li>
+          <li>Histórico de pedidos e notas fiscais</li>
+          <li>Suporte técnico especializado</li>
+        </ul>
+      </div>
+
+      <div class="login-card reveal">
+        <h3>Entrar na área profissional</h3>
+        <p>Acesso restrito a profissionais com cadastro aprovado</p>
+
+        <!-- [AUTH] Conecte aqui a autenticação real -->
+        <!-- Backend: POST /api/auth/login com { email, password } -->
+        <!-- Redirecionar para /dashboard após token válido -->
+        <div class="form-group">
+          <label class="form-label" for="login-email">E-mail profissional</label>
+          <input type="email" class="form-input" id="login-email" placeholder="seu@email.com">
+        </div>
+
+        <div class="form-group">
+          <label class="form-label" for="login-password">Senha</label>
+          <input type="password" class="form-input" id="login-password" placeholder="••••••••">
+        </div>
+
+        <div class="form-forgot">
+          <a href="#" onclick="alert('Entre em contato via WhatsApp ou e-mail para recuperar seu acesso.')">Esqueci minha senha</a>
+        </div>
+
+        <!-- [AUTH] handleLogin() — substitua pela chamada real ao backend -->
+        <button class="btn-login" onclick="handleLogin()">Entrar</button>
+
+        <div class="login-message" id="login-message"></div>
+
+        <div class="login-divider">ou</div>
+
+        <div style="text-align:center;font-size:0.8rem;color:var(--gray-400)">
+          Ainda não tem cadastro?
+          <a href="https://www.angelpiercings.com.br" target="_blank" style="color:var(--turq);font-weight:600"> Solicite seu acesso</a>
+        </div>
+
+        <div class="login-secure">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          Conexão segura · Dados criptografados
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <!-- [LOGO] Logo oficial em chip claro para contraste no rodapé escuro -->
+        <div class="footer-logo-chip">
+          <img
+            src="https://cdn.awsli.com.br/2212/2212107/logo/sem-t-tulo-1-bw6cy6h2bo.png"
+            alt="Angel Piercings Atacado"
+          >
+        </div>
+        <p>Fornecedor técnico especializado em piercings e materiais para body piercers e estúdios. Mais de 10 anos de atuação na região de Limeira/SP.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#processos">Processos</a></li>
+          <li><a href="#documento">Documento</a></li>
+          <li><a href="#como-ler">Como Ler</a></li>
+          <li><a href="#verificar">Verificar</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Profissionais</h4>
+        <ul>
+          <li><a href="#profissionais">Área de Login</a></li>
+          <li><a href="https://www.angelpiercings.com.br" target="_blank">Solicitar Cadastro</a></li>
+          <li><a href="https://www.angelpiercings.com.br/pagina/como-comprar.html" target="_blank">Como Comprar</a></li>
+          <li><a href="https://www.instagram.com/angelpiercings_atacado/" target="_blank">Instagram</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-col">
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="#">Limeira / SP — Brasil</a></li>
+          <li><a href="https://www.angelpiercings.com.br" target="_blank">angelpiercings.com.br</a></li>
+          <li><a href="https://www.facebook.com/angelpiercingslimeira/" target="_blank">Facebook</a></li>
+          <li><a href="#">WhatsApp Profissional</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© 2026 Angel Piercings Atacado. Todos os direitos reservados.</span>
+      <span>Venda exclusiva para profissionais do setor.</span>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== MODAL: DOWNLOAD PROTEGIDO POR SENHA ===== -->
+<div class="download-modal" id="download-modal" role="dialog" aria-modal="true" aria-labelledby="download-modal-title">
+  <div class="download-modal-card">
+    <button class="download-modal-close" onclick="fecharDownloadModal()" aria-label="Fechar">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+
+    <div class="download-modal-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+    </div>
+
+    <h3 id="download-modal-title">Download protegido</h3>
+    <p>O relatório oficial é restrito a profissionais autorizados. Informe a senha de acesso para liberar o download do documento.</p>
+
+    <div class="download-file-tag">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      <div>
+        <div class="name">Relatório de Ensaios — PL2601369 Rev. 0</div>
+        <div class="meta">PDF · Titânio ASTM F136 · Emitido 01 Jun 2026</div>
+      </div>
+    </div>
+
+    <label for="download-password">Senha de acesso</label>
+    <input
+      type="password"
+      class="download-modal-input"
+      id="download-password"
+      placeholder="Digite a senha"
+      autocomplete="off"
+    >
+
+    <div class="download-modal-message" id="download-message"></div>
+
+    <div class="download-modal-actions">
+      <button class="btn btn-ghost" onclick="fecharDownloadModal()">Cancelar</button>
+      <button class="btn btn-primary" onclick="confirmarDownload()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Baixar documento
+      </button>
+    </div>
+
+    <div class="download-modal-secure">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      Acesso restrito a profissionais autorizados
+    </div>
+  </div>
+</div>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+/* ========================================================
+   ANGEL PIERCINGS ATACADO — SCRIPTS
+   ======================================================== */
+
+/* ---- DOWNLOAD PROTEGIDO POR SENHA ----
+   [PDF_URL] Caminho/URL do arquivo que será baixado.
+   Troque pelo caminho real do PDF (mesma pasta do index.html, ou URL completa). */
+const PDF_DOCUMENTO = 'PL2601369_5040_METALURG_400000031947_F.PDF';
+
+/* [SENHA] Defina aqui a senha de download.
+   ATENÇÃO: esta verificação é feita no navegador (frontend), portanto serve como
+   barreira simples. Para proteção REAL, o ideal é validar a senha no servidor e
+   só então liberar o arquivo (ex.: gerar um link temporário após autenticação).
+   Para conectar a um backend, substitua o conteúdo de confirmarDownload() por uma
+   chamada fetch() que retorne o arquivo apenas se a senha for válida. */
+const SENHA_DOWNLOAD = 'angel2026';
+
+function abrirDownloadProtegido() {
+  const modal = document.getElementById('download-modal');
+  const input = document.getElementById('download-password');
+  const msg   = document.getElementById('download-message');
+
+  msg.className = 'download-modal-message';
+  msg.textContent = '';
+  input.value = '';
+
+  modal.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  setTimeout(() => input.focus(), 60);
+}
+
+function fecharDownloadModal() {
+  const modal = document.getElementById('download-modal');
+  modal.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function confirmarDownload() {
+  const input = document.getElementById('download-password');
+  const msg   = document.getElementById('download-message');
+  const senha = input.value.trim();
+
+  msg.className = 'download-modal-message';
+
+  if (!senha) {
+    msg.className = 'download-modal-message error';
+    msg.innerHTML = `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      Informe a senha para continuar.`;
+    return;
+  }
+
+  /* [SENHA] Validação demonstrativa no frontend.
+     Substitua por validação no servidor para segurança real. */
+  if (senha === SENHA_DOWNLOAD) {
+    msg.className = 'download-modal-message success';
+    msg.innerHTML = `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      Senha confirmada. Iniciando o download...`;
+
+    // Dispara o download do arquivo
+    const a = document.createElement('a');
+    a.href = PDF_DOCUMENTO;
+    a.download = '';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+
+    setTimeout(fecharDownloadModal, 1400);
+  } else {
+    msg.className = 'download-modal-message error';
+    msg.innerHTML = `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+      Senha incorreta. Verifique e tente novamente.`;
+  }
+}
+
+// Enter envia / Esc fecha o modal de download
+document.getElementById('download-password').addEventListener('keydown', e => {
+  if (e.key === 'Enter') confirmarDownload();
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    const modal = document.getElementById('download-modal');
+    if (modal.classList.contains('open')) fecharDownloadModal();
+  }
+});
+// Clicar fora do card fecha o modal
+document.getElementById('download-modal').addEventListener('click', e => {
+  if (e.target.id === 'download-modal') fecharDownloadModal();
+});
+
+
+/* ---- SCROLL REVEAL ---- */
+(function initReveal() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        // Stagger delay for siblings
+        const siblings = e.target.parentElement.querySelectorAll('.reveal');
+        let delay = 0;
+        siblings.forEach((s, idx) => { if (s === e.target) delay = idx * 80; });
+        setTimeout(() => e.target.classList.add('visible'), Math.min(delay, 400));
+        observer.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -48px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+})();
+
+
+/* ---- NAV SHADOW ON SCROLL ---- */
+window.addEventListener('scroll', () => {
+  const nav = document.getElementById('main-nav');
+  if (window.scrollY > 20) {
+    nav.style.boxShadow = '0 2px 32px rgba(26,26,26,0.10)';
+  } else {
+    nav.style.boxShadow = 'none';
+  }
+}, { passive: true });
+
+
+/* ---- MOBILE NAV ---- */
+function toggleMobileNav() {
+  const links = document.querySelector('.nav-links');
+  const isOpen = links.style.display === 'flex';
+  links.style.cssText = isOpen
+    ? ''
+    : 'display:flex;flex-direction:column;position:absolute;top:72px;left:0;right:0;background:var(--ivory);padding:24px;gap:20px;border-bottom:1px solid var(--gray-200);z-index:99;box-shadow:var(--shadow-card)';
+}
+
+// Close on link click
+document.querySelectorAll('.nav-links a').forEach(a => {
+  a.addEventListener('click', () => {
+    const links = document.querySelector('.nav-links');
+    if (window.innerWidth < 768) links.style = '';
+  });
+});
+
+
+/* ---- VERIFICATION SYSTEM ----
+   [CODIGOS_LAUDO] Adicione aqui os códigos reais de laudos emitidos.
+   No futuro, substitua por uma chamada fetch() a uma API real:
+   POST /api/verify-document com { code: inputValue }
+   ---- */
+const LAUDOS_REGISTRADOS = {
+  'PL2601369': {
+    numero: 'PL2601369 Rev. 0',
+    data: '01 Junho 2026',
+    material: 'Titânio ASTM F136',
+    item: 'Piercing Ø 1,6mm × 14mm',
+    status: 'Atende a Especificação'
+  }
+  // Adicione mais códigos aqui: 'PL0000000': { ... }
+};
+
+function verificarCodigo() {
+  const input = document.getElementById('verify-input');
+  const result = document.getElementById('verify-result');
+  const code = input.value.trim().toUpperCase().replace(/\s/g, '');
+
+  result.className = 'verify-result';
+  result.style.display = 'none';
+
+  if (!code) {
+    result.className = 'verify-result error';
+    result.innerHTML = `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+      Por favor, insira um código de relatório para verificar.
+    `;
+    result.style.display = 'flex';
+    return;
+  }
+
+  // Busca por correspondência parcial (apenas o número base)
+  const found = Object.keys(LAUDOS_REGISTRADOS).find(k => code.includes(k) || k.includes(code));
+
+  if (found) {
+    const doc = LAUDOS_REGISTRADOS[found];
+    result.className = 'verify-result success';
+    result.innerHTML = `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+      <div>
+        <strong>Documento localizado: ${doc.numero}</strong><br>
+        <span style="font-size:0.78rem;opacity:0.75">Emitido em ${doc.data} · ${doc.material} · ${doc.item} · Conclusão: ${doc.status}.<br>
+        Confira se os dados impressos correspondem a este registro.</span>
+      </div>
+    `;
+  } else {
+    result.className = 'verify-result error';
+    result.innerHTML = `
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+      <div>
+        <strong>Código não encontrado.</strong><br>
+        <span style="font-size:0.78rem;opacity:0.75">Verifique os caracteres digitados. Se o problema persistir, entre em contato diretamente com a empresa.</span>
+      </div>
+    `;
+  }
+
+  result.style.display = 'flex';
+}
+
+// Permit Enter key in verify field
+document.getElementById('verify-input').addEventListener('keydown', e => {
+  if (e.key === 'Enter') verificarCodigo();
+});
+
+
+/* ---- LOGIN HANDLER ----
+   [AUTH] Substitua este handler pela chamada real de autenticação.
+   Exemplo com fetch:
+     const res = await fetch('/api/auth/login', {
+       method: 'POST',
+       headers: { 'Content-Type': 'application/json' },
+       body: JSON.stringify({ email, password })
+     });
+     if (res.ok) { const { token } = await res.json(); localStorage.setItem('authToken', token); window.location = '/dashboard'; }
+   ---- */
+async function handleLogin() {
+  const email    = document.getElementById('login-email').value.trim();
+  const password = document.getElementById('login-password').value;
+  const msgEl    = document.getElementById('login-message');
+  const btn      = document.querySelector('.btn-login');
+
+  msgEl.className = 'login-message';
+  msgEl.textContent = '';
+
+  if (!email || !password) {
+    msgEl.className = 'login-message error';
+    msgEl.textContent = 'Por favor, preencha e-mail e senha.';
+    return;
+  }
+
+  btn.textContent = 'Verificando...';
+  btn.disabled = true;
+
+  // Simulação de autenticação (remover em produção)
+  await new Promise(r => setTimeout(r, 1200));
+
+  btn.textContent = 'Entrar';
+  btn.disabled = false;
+
+  // [AUTH] Lógica de validação demonstrativa — substitua por chamada real
+  // Credenciais de demonstração: qualquer email @angelpiercings.com.br
+  if (email.endsWith('@angelpiercings.com.br') && password.length >= 6) {
+    msgEl.className = 'login-message success';
+    msgEl.textContent = '✓ Acesso autorizado. Redirecionando para a área profissional...';
+    // [AUTH] Redirecionar: window.location.href = '/dashboard';
+  } else {
+    msgEl.className = 'login-message error';
+    msgEl.textContent = 'E-mail ou senha inválidos. Verifique suas credenciais ou solicite acesso via site oficial.';
+  }
+}
+
+</script>
+</body>
+</html>
