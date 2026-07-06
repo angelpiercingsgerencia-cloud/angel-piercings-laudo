@@ -1438,8 +1438,7 @@ footer {
       <li><a href="#documento">Documento</a></li>
       <li><a href="#como-ler">Como Ler</a></li>
       <li><a href="#verificar">Verificar</a></li>
-      <li><a href="#profissionais" class="nav-cta">Área Profissional</a></li>
-    </ul>
+      </ul>
 
     <button class="nav-mobile-toggle" onclick="toggleMobileNav()" aria-label="Menu">
       <span></span><span></span><span></span>
@@ -2044,65 +2043,6 @@ footer {
   </div>
 </section>
 
-<!-- ===== PROFISSIONAIS / LOGIN ===== -->
-<section id="profissionais">
-  <div class="container">
-    <div class="login-wrap">
-      <div class="login-info reveal">
-        <p class="eyebrow">Área Restrita</p>
-        <h2>Acesso exclusivo para profissionais do setor</h2>
-        <p>O cadastro na Angel Piercings Atacado é liberado somente para body piercers e estúdios devidamente comprovados. Após aprovação do cadastro, o profissional tem acesso ao portfólio completo, preços de atacado e documentação técnica dos materiais.</p>
-
-        <ul>
-          <li>Catálogo completo de joias em titânio, aço cirúrgico e ouro</li>
-          <li>Documentação técnica e relatórios de ensaio disponíveis</li>
-          <li>Preços e condições exclusivos para atacado</li>
-          <li>Histórico de pedidos e notas fiscais</li>
-          <li>Suporte técnico especializado</li>
-        </ul>
-      </div>
-
-      <div class="login-card reveal">
-        <h3>Entrar na área profissional</h3>
-        <p>Acesso restrito a profissionais com cadastro aprovado</p>
-
-        <!-- [AUTH] Conecte aqui a autenticação real -->
-        <!-- Backend: POST /api/auth/login com { email, password } -->
-        <!-- Redirecionar para /dashboard após token válido -->
-        <div class="form-group">
-          <label class="form-label" for="login-email">E-mail profissional</label>
-          <input type="email" class="form-input" id="login-email" placeholder="seu@email.com">
-        </div>
-
-        <div class="form-group">
-          <label class="form-label" for="login-password">Senha</label>
-          <input type="password" class="form-input" id="login-password" placeholder="••••••••">
-        </div>
-
-        <div class="form-forgot">
-          <a href="#" onclick="alert('Entre em contato via WhatsApp ou e-mail para recuperar seu acesso.')">Esqueci minha senha</a>
-        </div>
-
-        <!-- [AUTH] handleLogin() — substitua pela chamada real ao backend -->
-        <button class="btn-login" onclick="handleLogin()">Entrar</button>
-
-        <div class="login-message" id="login-message"></div>
-
-        <div class="login-divider">ou</div>
-
-        <div style="text-align:center;font-size:0.8rem;color:var(--gray-400)">
-          Ainda não tem cadastro?
-          <a href="https://www.angelpiercings.com.br" target="_blank" style="color:var(--turq);font-weight:600"> Solicite seu acesso</a>
-        </div>
-
-        <div class="login-secure">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-          Conexão segura · Dados criptografados
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ===== FOOTER ===== -->
 <footer>
