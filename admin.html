@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Area Administrativa - Angel Piercings Atacado</title>
+
+<!-- ============================================================
+AREA ADMINISTRATIVA - PAGINA SEPARADA, NAO LINKADA NO MENU PRINCIPAL
+ATENCAO IMPORTANTE SOBRE SEGURANCA:
+Este e um site estatico (sem servidor/backend). A checagem de login
+abaixo e feita inteiramente no navegador (JavaScript). Isso significa
+que ela NAO e uma seguranca real: qualquer pessoa que abrir o
+"codigo fonte" desta pagina (ou o repositorio no GitHub, que e
+PUBLICO) consegue ver o login e a senha em texto puro.
+Use esta area apenas como uma organizacao simples / um filtro
+contra visitantes casuais - nunca para proteger documentos
+realmente confidenciais ou sigilosos.
+
+Para trocar o login: busque por [ADMIN_LOGIN]
+Para trocar a senha: busque por [ADMIN_SENHA]
+Para adicionar novos botoes/links: busque por [ADMIN_ITEM]
+============================================================ -->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --ivory: #F2F8F7;
+  --ivory-deep: #E3F0EE;
+  --charcoal: #15211F;
+  --charcoal-mid:#243431;
+  --turq: #5CCCC5;
+  --turq-light: #8FE0DA;
+  --white: #FFFFFF;
+  --red-soft: #C0392B;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: var(--font-body);
+  background: var(--charcoal);
+  color: var(--ivory);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+h1 { font-family: var(--font-display); font-size: 1.6rem; margin-bottom: 8px; }
+.card {
+  background: var(--charcoal-mid);
+  border-radius: 20px;
+  padding: 40px;
+  max-width: 420px;
+  width: 100%;
+  box-shadow: 0 8px 48px rgba(0,0,0,0.3);
+}
+.subtitle { color: rgba(242,248,247,0.6); font-size: 0.9rem; margin-bottom: 28px; }
+label { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; color: var(--turq-light); }
+input[type="text"], input[type="password"] {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(242,248,247,0.15);
+  background: var(--charcoal);
+  color: var(--ivory);
+  font-size: 0.95rem;
+  margin-bottom: 18px;
+  font-family: var(--font-body);
+}
+input:focus { outline: 2px solid var(--turq); }
+button {
+  cursor: pointer;
+  border: none;
+  font-family: var(--font-body);
+  font-weight: 600;
+  border-radius: 10px;
+  padding: 13px 20px;
+  font-size: 0.9rem;
+  width: 100%;
+}
+.btn-primary { background: var(--turq); color: var(--charcoal); }
+.btn-primary:hover { background: var(--turq-light); }
+.error-msg { color: #ff8a80; font-size: 0.85rem; margin-top: -8px; margin-bottom: 16px; min-height: 18px; }
+.security-note {
+  margin-top: 24px;
+  font-size: 0.72rem;
+  line-height: 1.6;
+  color: rgba(242,248,247,0.4);
+  border-top: 1px solid rgba(242,248,247,0.1);
+  padding-top: 16px;
+}
+#dashboard { display: none; max-width: 560px; width: 100%; }
+.dash-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+.btn-logout { width: auto; background: transparent; color: rgba(242,248,247,0.6); border: 1px solid rgba(242,248,247,0.2); padding: 8px 16px; font-size: 0.8rem; }
+.item-list { display: flex; flex-direction: column; gap: 14px; }
+.item-row {
+  background: var(--charcoal);
+  border: 1px solid rgba(242,248,247,0.1);
+  border-radius: 14px;
+  padding: 18px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.item-row .item-label { font-size: 0.92rem; }
+.item-row .item-tag { display:block; font-size: 0.7rem; color: var(--turq-light); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 4px; }
+.item-row button { width: auto; padding: 10px 18px; }
+</style>
+</head>
+<body>
+
+<!-- ===== TELA DE LOGIN ===== -->
+<div class="card" id="loginScreen">
+  <h1>Area Administrativa</h1>
+  <p class="subtitle">Angel Piercings Atacado - acesso restrito</p>
+
+  <label for="loginUser">Login</label>
+  <input type="text" id="loginUser" autocomplete="off">
+
+  <label for="loginPass">Senha</label>
+  <input type="password" id="loginPass">
+
+  <p class="error-msg" id="loginError"></p>
+
+  <button class="btn-primary" onclick="tentarLogin()">Entrar</button>
+
+  <p class="security-note">
+    Aviso: esta pagina fica em um repositorio publico e nao possui servidor por tras.
+    O login serve apenas como uma organizacao simples, nao como protecao real de
+    documentos sigilosos.
+  </p>
+</div>
+
+<!-- ===== PAINEL (aparece apos login correto) ===== -->
+<div class="card" id="dashboard">
+  <div class="dash-header">
+    <div>
+      <h1>Painel Administrativo</h1>
+      <p class="subtitle">Documentos e links</p>
+    </div>
+    <button class="btn-logout" onclick="logout()">Sair</button>
+  </div>
+
+  <div class="item-list" id="itemList"></div>
+</div>
+
+<script>
+/* [ADMIN_LOGIN] Troque o valor abaixo para mudar o login de acesso */
+const ADMIN_LOGIN = 'ADMIN';
+/* [ADMIN_SENHA] Troque o valor abaixo para mudar a senha de acesso */
+const ADMIN_SENHA = 'SENHORSALMO23';
+
+/* [ADMIN_ITEM] Lista de documentos/links do painel.
+   Copie um bloco { ... } para adicionar um novo item.
+   tipo: 'download' -> baixa/abre um arquivo (coloque o nome do arquivo em "url",
+         o arquivo precisa estar na mesma pasta do site, ou use uma URL completa).
+   tipo: 'link'     -> redireciona para uma URL externa qualquer.
+   senha: ''        -> sem senha extra (o login da area administrativa ja protege).
+   senha: 'algumaSenha' -> pede uma senha extra so para esse item especifico. */
+const ITENS = [
+  {
+    label: 'Relatorio Tecnico Oficial (PDF)',
+    tipo: 'download',
+    url: 'PL2601369_5040_METALURG_400000031947_F.PDF',
+    senha: ''
+  }
+  /* [ADMIN_ITEM] Exemplo de novo item (apague o comentario para ativar):
+  ,{
+    label: 'Nome do novo botao',
+    tipo: 'link',
+    url: 'https://exemplo.com',
+    senha: ''
+  }
+  */
+];
+
+function tentarLogin() {
+  const user = document.getElementById('loginUser').value.trim();
+  const pass = document.getElementById('loginPass').value;
+  const erro = document.getElementById('loginError');
+
+  if (user === ADMIN_LOGIN && pass === ADMIN_SENHA) {
+    erro.textContent = '';
+    document.getElementById('loginScreen').style.display = 'none';
+    document.getElementById('dashboard').style.display = 'block';
+    renderItens();
+  } else {
+    erro.textContent = 'Login ou senha incorretos.';
+  }
+}
+
+function logout() {
+  document.getElementById('dashboard').style.display = 'none';
+  document.getElementById('loginScreen').style.display = 'block';
+  document.getElementById('loginUser').value = '';
+  document.getElementById('loginPass').value = '';
+}
+
+function renderItens() {
+  const lista = document.getElementById('itemList');
+  lista.innerHTML = '';
+  ITENS.forEach(function(item, index) {
+    const row = document.createElement('div');
+    row.className = 'item-row';
+
+    const info = document.createElement('div');
+    info.innerHTML = '<span class="item-label">' + item.label + '</span>' +
+      '<span class="item-tag">' + (item.tipo === 'download' ? 'Download' : 'Link externo') + '</span>';
+
+    const btn = document.createElement('button');
+    btn.className = 'btn-primary';
+    btn.textContent = item.tipo === 'download' ? 'Baixar' : 'Acessar';
+    btn.onclick = function() { acessarItem(index); };
+
+    row.appendChild(info);
+    row.appendChild(btn);
+    lista.appendChild(row);
+  });
+}
+
+function acessarItem(index) {
+  const item = ITENS[index];
+  if (item.senha) {
+    const tentativa = prompt('Digite a senha para acessar "' + item.label + '":');
+    if (tentativa !== item.senha) {
+      alert('Senha incorreta.');
+      return;
+    }
+  }
+  window.open(item.url, '_blank');
+}
+
+/* Permite pressionar Enter para logar */
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById('loginPass').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') tentarLogin();
+  });
+});
+</script>
+
+</body>
+</html>
