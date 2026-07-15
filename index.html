@@ -364,25 +364,24 @@ nav {
               radial-gradient(ellipse at 80% 20%, rgba(92,204,197,0.08) 0%, transparent 50%);
 }
 
-     .hero-report-photo {
-            position: absolute;
-            top: 64px;
-            right: 48px;
-            width: 260px;
-            z-index: 3;
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            background: var(--white);
-            padding: 8px;
-            box-shadow: 0 24px 60px rgba(0,0,0,0.45);
-            transform: rotate(3deg);
-     }
+.hero-report-photo {
+       position: absolute;
+       inset: 0;
+       z-index: 1;
+}
      .hero-report-photo img {
             width: 100%;
+            height: 100%;
+            object-fit: cover;
             display: block;
-            border-radius: 6px;
      }
-
+     .hero-report-photo::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(21,33,31,0.55) 0%, rgba(21,33,31,0.05) 45%, rgba(21,33,31,0.25) 100%);
+     }
+     
 .ring-scene {
   position: relative;
   width: 320px;
@@ -431,6 +430,7 @@ nav {
 }
 
 .hero-doc-card {
+     z-index: 2;
   position: absolute;
   bottom: 40px;
   left: 50%;
