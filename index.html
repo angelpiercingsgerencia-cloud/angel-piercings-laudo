@@ -1459,7 +1459,7 @@ footer {
       <li><a href="#processos">Processos</a></li>
       <li><a href="#documento">Documento</a></li>
       <li><a href="#como-ler">Como Ler</a></li>
-      <li><a href="#verificar">Verificar</a></li>
+      
       </ul>
 
     <button class="nav-mobile-toggle" onclick="toggleMobileNav()" aria-label="Menu">
@@ -1507,10 +1507,7 @@ footer {
   <div class="hero-visual">
     <div class="hero-visual-bg"></div>
 
-       <!-- [FOTO] Foto real do relatorio de ensaios SGS exibida na capa lateral do hero -->
-       <div class="hero-report-photo">
-            <img src="logo-angel-piercings-hero.jpg" alt="Angel Piercings Atacado">
-       </div>
+       
 
     <div class="ring-scene">
       <div class="ring-orbit"></div>
@@ -1816,45 +1813,14 @@ footer {
           </p>
         </div>
 
-        <div class="doc-card-footer">
-          <span>Verifique se o código do documento corresponde ao registro oficial.</span>
-          <a href="#verificar" style="font-size:0.75rem;font-weight:600;color:var(--turq)">Verificar →</a>
-        </div>
+        
       </div>
     </div>
   </div>
 </section>
 
 <!-- ===== VERIFICAÇÃO DE CÓDIGO ===== -->
-<section id="verificar">
-  <div class="container">
-    <div class="verify-wrap">
-      <p class="eyebrow reveal">Verificação Documental</p>
-      <h2 class="reveal">Confirme o código do relatório</h2>
-      <p class="reveal">Digite o número do relatório para verificar se o documento corresponde a um registro técnico emitido. Confira sempre se os dados impressos coincidem com o registro consultado.</p>
 
-      <div class="verify-form reveal">
-        <input
-          type="text"
-          class="verify-input"
-          id="verify-input"
-          placeholder="Ex.: PL2601369"
-          maxlength="20"
-        >
-        <button class="btn btn-primary" onclick="verificarCodigo()">
-          Verificar
-        </button>
-      </div>
-
-      <div class="verify-result" id="verify-result"></div>
-
-      <p class="verify-notice reveal">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
-        Esta verificação é demonstrativa. Para validação oficial, entre em contato diretamente com a empresa.
-      </p>
-    </div>
-  </div>
-</section>
 
 <!-- ===== COMO LER UM LAUDO ===== -->
 <section id="como-ler">
@@ -1916,90 +1882,7 @@ footer {
 </section>
 
 <!-- ===== GALERIA DE MAPEAMENTO ===== -->
-<section id="mapeamento">
-  <div class="container">
-    <div class="section-header reveal">
-      <p class="eyebrow">Registro Visual</p>
-      <h2>Mapeamento fotográfico da peça</h2>
-      <p>O registro fotográfico compõe parte essencial do processo técnico. Cada imagem é identificada por etapa e acompanha observação descritiva.</p>
-    </div>
 
-    <!-- [FOTO] Substitua os placeholders pelas imagens reais do mapeamento -->
-    <div class="gallery-grid">
-      <div class="gallery-item reveal">
-        <div class="gallery-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
-          <span>FOTO GERAL</span>
-        </div>
-        <div class="gallery-caption">
-          <div class="step">Etapa 01</div>
-          <h4>Vista geral da peça</h4>
-          <p>Piercing titanio ASTM F136 — Ø 1,6mm × 14mm</p>
-        </div>
-      </div>
-
-      <div class="gallery-item reveal">
-        <div class="gallery-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-          <span>DETALHE FRONTAL</span>
-        </div>
-        <div class="gallery-caption">
-          <div class="step">Etapa 02</div>
-          <h4>Detalhe parte frontal</h4>
-          <p>Superfície e acabamento externo</p>
-        </div>
-      </div>
-
-      <div class="gallery-item reveal">
-        <div class="gallery-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="15 3 21 3 21 9"/><polyline points="9 21 3 21 3 15"/><line x1="21" y1="3" x2="14" y2="10"/><line x1="3" y1="21" x2="10" y2="14"/></svg>
-          <span>DETALHE TRASEIRO</span>
-        </div>
-        <div class="gallery-caption">
-          <div class="step">Etapa 03</div>
-          <h4>Detalhe parte traseira</h4>
-          <p>Fechamento e gravações internas</p>
-        </div>
-      </div>
-
-      <div class="gallery-item reveal">
-        <div class="gallery-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          <span>MARCAS E GRAVAÇÕES</span>
-        </div>
-        <div class="gallery-caption">
-          <div class="step">Etapa 04</div>
-          <h4>Marcas e gravações identificadoras</h4>
-          <p>Código de lote e identificação do fabricante</p>
-        </div>
-      </div>
-
-      <div class="gallery-item reveal">
-        <div class="gallery-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
-          <span>PONTO DE ANÁLISE</span>
-        </div>
-        <div class="gallery-caption">
-          <div class="step">Etapa 05</div>
-          <h4>Ponto de extração para ensaio</h4>
-          <p>Registro do ponto amostrado para análise via XRF e combustão</p>
-        </div>
-      </div>
-
-      <div class="gallery-item reveal">
-        <div class="gallery-placeholder">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-          <span>IMAGEM COM LEGENDA</span>
-        </div>
-        <div class="gallery-caption">
-          <div class="step">Etapa 06</div>
-          <h4>Registro técnico final</h4>
-          <p>Imagem com legenda e anotações do responsável técnico</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- ===== ONDE É REALIZADO ===== -->
 <section id="laboratorio">
@@ -2090,7 +1973,7 @@ footer {
           <li><a href="#processos">Processos</a></li>
           <li><a href="#documento">Documento</a></li>
           <li><a href="#como-ler">Como Ler</a></li>
-          <li><a href="#verificar">Verificar</a></li>
+          
         </ul>
       </div>
 
