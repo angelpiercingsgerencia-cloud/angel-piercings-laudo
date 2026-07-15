@@ -364,6 +364,25 @@ nav {
               radial-gradient(ellipse at 80% 20%, rgba(92,204,197,0.08) 0%, transparent 50%);
 }
 
+     .hero-report-photo {
+            position: absolute;
+            top: 64px;
+            right: 48px;
+            width: 260px;
+            z-index: 3;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            background: var(--white);
+            padding: 8px;
+            box-shadow: 0 24px 60px rgba(0,0,0,0.45);
+            transform: rotate(3deg);
+     }
+     .hero-report-photo img {
+            width: 100%;
+            display: block;
+            border-radius: 6px;
+     }
+
 .ring-scene {
   position: relative;
   width: 320px;
@@ -1484,6 +1503,11 @@ footer {
   <!-- VISUAL / SIGNATURE ELEMENT -->
   <div class="hero-visual">
     <div class="hero-visual-bg"></div>
+
+       <!-- [FOTO] Foto real do relatorio de ensaios SGS exibida na capa lateral do hero -->
+       <div class="hero-report-photo">
+            <img src="relatorio-sgs-capa.jpg" alt="Relatorio de Ensaios SGS - Titanio ASTM F136">
+       </div>
 
     <div class="ring-scene">
       <div class="ring-orbit"></div>
