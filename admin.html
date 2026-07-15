@@ -4,246 +4,250 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Area Administrativa - Angel Piercings Atacado</title>
-
-<!-- ============================================================
-AREA ADMINISTRATIVA - PAGINA SEPARADA, NAO LINKADA NO MENU PRINCIPAL
-ATENCAO IMPORTANTE SOBRE SEGURANCA:
-Este e um site estatico (sem servidor/backend). A checagem de login
-abaixo e feita inteiramente no navegador (JavaScript). Isso significa
-que ela NAO e uma seguranca real: qualquer pessoa que abrir o
-"codigo fonte" desta pagina (ou o repositorio no GitHub, que e
-PUBLICO) consegue ver o login e a senha em texto puro.
-Use esta area apenas como uma organizacao simples / um filtro
-contra visitantes casuais - nunca para proteger documentos
-realmente confidenciais ou sigilosos.
-
-Para trocar o login: busque por [ADMIN_LOGIN]
-Para trocar a senha: busque por [ADMIN_SENHA]
-Para adicionar novos botoes/links: busque por [ADMIN_ITEM]
-============================================================ -->
-
+<title>Painel Administrativo — Angel Piercings Atacado</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-:root {
-  --ivory: #F2F8F7;
-  --ivory-deep: #E3F0EE;
-  --charcoal: #15211F;
-  --charcoal-mid:#243431;
-  --turq: #5CCCC5;
-  --turq-light: #8FE0DA;
-  --white: #FFFFFF;
-  --red-soft: #C0392B;
-  --font-display: 'Playfair Display', Georgia, serif;
-  --font-body: 'Inter', system-ui, sans-serif;
-}
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-body {
-  font-family: var(--font-body);
-  background: var(--charcoal);
-  color: var(--ivory);
-  min-height: 100vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 24px;
-}
-h1 { font-family: var(--font-display); font-size: 1.6rem; margin-bottom: 8px; }
-.card {
-  background: var(--charcoal-mid);
-  border-radius: 20px;
-  padding: 40px;
-  max-width: 420px;
-  width: 100%;
-  box-shadow: 0 8px 48px rgba(0,0,0,0.3);
-}
-.subtitle { color: rgba(242,248,247,0.6); font-size: 0.9rem; margin-bottom: 28px; }
-label { display: block; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 6px; color: var(--turq-light); }
-input[type="text"], input[type="password"] {
-  width: 100%;
-  padding: 12px 14px;
-  border-radius: 10px;
-  border: 1px solid rgba(242,248,247,0.15);
-  background: var(--charcoal);
-  color: var(--ivory);
-  font-size: 0.95rem;
-  margin-bottom: 18px;
-  font-family: var(--font-body);
-}
-input:focus { outline: 2px solid var(--turq); }
-button {
-  cursor: pointer;
-  border: none;
-  font-family: var(--font-body);
-  font-weight: 600;
-  border-radius: 10px;
-  padding: 13px 20px;
-  font-size: 0.9rem;
-  width: 100%;
-}
-.btn-primary { background: var(--turq); color: var(--charcoal); }
-.btn-primary:hover { background: var(--turq-light); }
-.error-msg { color: #ff8a80; font-size: 0.85rem; margin-top: -8px; margin-bottom: 16px; min-height: 18px; }
-.security-note {
-  margin-top: 24px;
-  font-size: 0.72rem;
-  line-height: 1.6;
-  color: rgba(242,248,247,0.4);
-  border-top: 1px solid rgba(242,248,247,0.1);
-  padding-top: 16px;
-}
-#dashboard { display: none; max-width: 560px; width: 100%; }
-.dash-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
-.btn-logout { width: auto; background: transparent; color: rgba(242,248,247,0.6); border: 1px solid rgba(242,248,247,0.2); padding: 8px 16px; font-size: 0.8rem; }
-.item-list { display: flex; flex-direction: column; gap: 14px; }
-.item-row {
-  background: var(--charcoal);
-  border: 1px solid rgba(242,248,247,0.1);
-  border-radius: 14px;
-  padding: 18px 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-}
-.item-row .item-label { font-size: 0.92rem; }
-.item-row .item-tag { display:block; font-size: 0.7rem; color: var(--turq-light); text-transform: uppercase; letter-spacing: 0.06em; margin-top: 4px; }
-.item-row button { width: auto; padding: 10px 18px; }
+:root{--bg:#0f1a18;--panel:#172724;--panel2:#203431;--turq:#5cccc5;--turq2:#8fe0da;--text:#f2f8f7;--muted:rgba(242,248,247,.58);--line:rgba(242,248,247,.12);--danger:#e36d61;--success:#75d3a5;--shadow:0 18px 55px rgba(0,0,0,.3);--font:'Inter',system-ui,sans-serif;--display:'Playfair Display',Georgia,serif}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:var(--font);background:var(--bg);color:var(--text);min-height:100vh}button,input,select,textarea{font:inherit}.hidden{display:none!important}
+.login-shell{min-height:100vh;display:grid;place-items:center;padding:24px;background:radial-gradient(circle at 80% 10%,rgba(92,204,197,.15),transparent 35%),var(--bg)}
+.login-card{width:min(440px,100%);padding:42px;border:1px solid var(--line);border-radius:24px;background:var(--panel);box-shadow:var(--shadow)}h1,h2,h3{font-family:var(--display)}h1{font-size:1.8rem;margin-bottom:8px}.subtitle{color:var(--muted);font-size:.9rem;line-height:1.6;margin-bottom:26px}
+label{display:block;font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--turq2);margin-bottom:7px}.field{margin-bottom:16px}input,select,textarea{width:100%;border:1px solid var(--line);border-radius:11px;background:var(--bg);color:var(--text);padding:12px 13px;outline:none}textarea{min-height:110px;resize:vertical}input:focus,select:focus,textarea:focus{border-color:var(--turq);box-shadow:0 0 0 3px rgba(92,204,197,.1)}input[type=file]{padding:9px}.hint{font-size:.72rem;color:var(--muted);line-height:1.5;margin-top:6px}.error{min-height:20px;color:#ff9b91;font-size:.83rem;margin:4px 0 12px}.notice{padding:12px 14px;border-radius:10px;font-size:.8rem;line-height:1.55;margin-bottom:18px;background:rgba(92,204,197,.08);border:1px solid rgba(92,204,197,.22);color:var(--turq2)}
+.btn{border:0;border-radius:10px;padding:11px 16px;font-weight:700;cursor:pointer;transition:.2s;display:inline-flex;align-items:center;justify-content:center;gap:8px}.btn:hover{transform:translateY(-1px)}.btn-primary{background:var(--turq);color:#10201d}.btn-secondary{background:transparent;color:var(--text);border:1px solid var(--line)}.btn-danger{background:rgba(227,109,97,.12);color:#ff9b91;border:1px solid rgba(227,109,97,.28)}.btn-small{padding:8px 11px;font-size:.76rem}.btn-full{width:100%}
+.app{min-height:100vh;display:grid;grid-template-columns:245px minmax(0,1fr)}.sidebar{position:sticky;top:0;height:100vh;padding:24px 18px;border-right:1px solid var(--line);background:#111f1d}.brand{padding:8px 10px 24px}.brand strong{font-family:var(--display);font-size:1.2rem}.brand span{display:block;font-size:.72rem;color:var(--muted);margin-top:3px}.nav{display:grid;gap:7px}.nav button{width:100%;text-align:left;border:0;border-radius:10px;padding:12px 13px;background:transparent;color:var(--muted);cursor:pointer;font-weight:600}.nav button.active,.nav button:hover{background:rgba(92,204,197,.1);color:var(--turq2)}.sidebar-footer{position:absolute;left:18px;right:18px;bottom:20px;display:grid;gap:8px}
+.main{padding:34px;min-width:0}.topbar{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:26px}.topbar h1{font-size:2rem}.top-actions{display:flex;gap:9px;flex-wrap:wrap}.panel{background:var(--panel);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 7px 28px rgba(0,0,0,.12);margin-bottom:20px}.panel h2{font-size:1.25rem;margin-bottom:6px}.panel-head{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:18px}.grid-2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.grid-3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.check-row{display:flex;align-items:center;gap:9px;margin:4px 0 16px;color:var(--muted);font-size:.85rem}.check-row input{width:auto}.form-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:8px}
+.list{display:grid;gap:11px}.item{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:16px;align-items:center;padding:15px 16px;border-radius:13px;background:var(--bg);border:1px solid var(--line)}.item-title{font-weight:700;font-size:.9rem}.item-meta{font-size:.73rem;color:var(--muted);line-height:1.5;margin-top:4px}.item-actions{display:flex;gap:7px;flex-wrap:wrap}.empty{padding:24px;text-align:center;border:1px dashed var(--line);border-radius:12px;color:var(--muted);font-size:.85rem}.status{position:fixed;right:22px;bottom:22px;z-index:1000;padding:12px 16px;border-radius:11px;background:#203d37;border:1px solid rgba(117,211,165,.3);box-shadow:var(--shadow);font-size:.82rem;color:#a9ecc9;opacity:0;transform:translateY(10px);pointer-events:none;transition:.25s}.status.show{opacity:1;transform:none}.preview-frame{width:100%;height:70vh;border:1px solid var(--line);border-radius:14px;background:white}.asset-preview{width:100%;height:150px;border-radius:12px;border:1px solid var(--line);background:var(--bg);display:grid;place-items:center;overflow:hidden;color:var(--muted);font-size:.78rem}.asset-preview img{width:100%;height:100%;object-fit:cover}.danger-zone{border-color:rgba(227,109,97,.25)}
+@media(max-width:900px){.app{grid-template-columns:1fr}.sidebar{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)}.nav{grid-template-columns:repeat(4,1fr)}.nav button{text-align:center;padding:10px 6px;font-size:.72rem}.sidebar-footer{position:static;margin-top:14px;grid-template-columns:1fr 1fr}.main{padding:22px}.grid-2,.grid-3{grid-template-columns:1fr}.topbar{flex-direction:column}.item{grid-template-columns:1fr}.preview-frame{height:60vh}}
 </style>
 </head>
 <body>
-
-<!-- ===== TELA DE LOGIN ===== -->
-<div class="card" id="loginScreen">
-  <h1>Area Administrativa</h1>
-  <p class="subtitle">Angel Piercings Atacado - acesso restrito</p>
-
-  <label for="loginUser">Login</label>
-  <input type="text" id="loginUser" autocomplete="off">
-
-  <label for="loginPass">Senha</label>
-  <input type="password" id="loginPass">
-
-  <p class="error-msg" id="loginError"></p>
-
-  <button class="btn-primary" onclick="tentarLogin()">Entrar</button>
-
-  <p class="security-note">
-    Aviso: esta pagina fica em um repositorio publico e nao possui servidor por tras.
-    O login serve apenas como uma organizacao simples, nao como protecao real de
-    documentos sigilosos.
-  </p>
-</div>
-
-<!-- ===== PAINEL (aparece apos login correto) ===== -->
-<div class="card" id="dashboard">
-  <div class="dash-header">
-    <div>
-      <h1>Painel Administrativo</h1>
-      <p class="subtitle">Documentos e links</p>
-    </div>
-    <button class="btn-logout" onclick="logout()">Sair</button>
+<section id="loginScreen" class="login-shell">
+  <div class="login-card">
+    <h1>Área Administrativa</h1>
+    <p class="subtitle">Gerencie botões, arquivos, imagens e textos do layout.</p>
+    <div class="notice">Esta versão é local: as alterações aparecem no site aberto no mesmo navegador e domínio. Para publicar para todos os visitantes, será necessário conectar um backend.</div>
+    <div class="field"><label for="loginUser">Login</label><input id="loginUser" type="text" autocomplete="username"></div>
+    <div class="field"><label for="loginPass">Senha</label><input id="loginPass" type="password" autocomplete="current-password"></div>
+    <div id="loginError" class="error"></div>
+    <button class="btn btn-primary btn-full" onclick="login()">Entrar</button>
   </div>
+</section>
 
-  <div class="item-list" id="itemList"></div>
+<div id="app" class="app hidden">
+  <aside class="sidebar">
+    <div class="brand"><strong>Angel Admin</strong><span>Editor do site institucional</span></div>
+    <nav class="nav">
+      <button class="active" data-tab="buttons" onclick="openTab('buttons',this)">Botões</button>
+      <button data-tab="images" onclick="openTab('images',this)">Fotos</button>
+      <button data-tab="texts" onclick="openTab('texts',this)">Textos</button>
+      <button data-tab="preview" onclick="openTab('preview',this)">Visualizar</button>
+    </nav>
+    <div class="sidebar-footer">
+      <a class="btn btn-secondary btn-small" href="index.html" target="_blank">Abrir site</a>
+      <button class="btn btn-secondary btn-small" onclick="logout()">Sair</button>
+    </div>
+  </aside>
+
+  <main class="main">
+    <div class="topbar"><div><h1 id="pageTitle">Botões do layout</h1><p class="subtitle" id="pageSubtitle">Crie links ou downloads e escolha onde serão exibidos.</p></div><div class="top-actions"><button class="btn btn-secondary btn-small" onclick="exportConfig()">Exportar configuração</button><label class="btn btn-secondary btn-small" style="cursor:pointer">Importar<input id="importFile" type="file" accept="application/json" hidden onchange="importConfig(this.files[0])"></label></div></div>
+
+    <section id="tab-buttons" class="tab-section">
+      <div class="panel">
+        <div class="panel-head"><div><h2 id="buttonFormTitle">Criar botão</h2><p class="subtitle">O botão pode abrir um link ou baixar um arquivo enviado pelo painel.</p></div></div>
+        <input type="hidden" id="buttonId">
+        <div class="grid-2">
+          <div class="field"><label for="buttonLabel">Texto do botão</label><input id="buttonLabel" type="text" placeholder="Ex.: Baixar catálogo"></div>
+          <div class="field"><label for="buttonAction">Ação</label><select id="buttonAction" onchange="toggleButtonAction()"><option value="link">Abrir link</option><option value="file">Baixar arquivo</option></select></div>
+          <div class="field" id="urlField"><label for="buttonUrl">Endereço do link</label><input id="buttonUrl" type="url" placeholder="https://..."></div>
+          <div class="field hidden" id="fileField"><label for="buttonFile">Arquivo para download</label><input id="buttonFile" type="file"><p class="hint" id="currentFileHint">PDF, imagem, planilha ou outro arquivo aceito pelo navegador.</p></div>
+          <div class="field"><label for="buttonPlacement">Local no layout</label><select id="buttonPlacement">
+            <option value="hero-actions">Junto aos botões principais</option><option value="hero-bottom">Depois da abertura</option>
+            <option value="sobre-top">Sobre — início</option><option value="sobre-bottom">Sobre — final</option>
+            <option value="processos-top">Processos — início</option><option value="processos-bottom">Processos — final</option>
+            <option value="documento-top">Documento — início</option><option value="documento-bottom">Documento — final</option>
+            <option value="como-ler-top">Como ler — início</option><option value="como-ler-bottom">Como ler — final</option>
+            <option value="laboratorio-top">Laboratório — início</option><option value="laboratorio-bottom">Laboratório — final</option>
+            <option value="footer-top">Rodapé — início</option><option value="footer-bottom">Rodapé — final</option>
+            <option value="floating-top-left">Flutuante — superior esquerdo</option><option value="floating-top-right">Flutuante — superior direito</option>
+            <option value="floating-bottom-left">Flutuante — inferior esquerdo</option><option value="floating-bottom-right">Flutuante — inferior direito</option>
+          </select></div>
+          <div class="field"><label for="buttonAlign">Alinhamento</label><select id="buttonAlign"><option value="left">Esquerda</option><option value="center">Centro</option><option value="right">Direita</option></select></div>
+          <div class="field"><label for="buttonStyle">Aparência</label><select id="buttonStyle"><option value="primary">Escuro</option><option value="turquoise">Turquesa</option><option value="outline">Contorno</option><option value="white">Branco</option><option value="danger">Vermelho</option></select></div>
+          <div class="field"><label for="buttonOrder">Ordem</label><input id="buttonOrder" type="number" value="0" min="0"></div>
+        </div>
+        <label class="check-row" id="newTabRow"><input id="buttonNewTab" type="checkbox" checked> Abrir link em nova aba</label>
+        <label class="check-row"><input id="buttonEnabled" type="checkbox" checked> Botão visível no site</label>
+        <div class="form-actions"><button class="btn btn-primary" onclick="saveButton()">Salvar botão</button><button class="btn btn-secondary hidden" id="cancelButtonEdit" onclick="resetButtonForm()">Cancelar edição</button></div>
+      </div>
+      <div class="panel"><div class="panel-head"><div><h2>Botões cadastrados</h2><p class="subtitle">Edite, desative ou exclua qualquer item.</p></div></div><div id="buttonList" class="list"></div></div>
+    </section>
+
+    <section id="tab-images" class="tab-section hidden">
+      <div class="panel"><h2>Atualizar fotos do layout</h2><p class="subtitle">Escolha uma área, envie a imagem e salve. As imagens ficam armazenadas no navegador.</p>
+        <div class="grid-2">
+          <div>
+            <div class="field"><label for="imageSlot">Área da imagem</label><select id="imageSlot" onchange="renderImagePreview()"><option value="logo">Logo do topo e rodapé</option><option value="hero">Imagem principal lateral</option><option value="about">Imagem da seção Sobre</option><option value="laboratory">Imagem do laboratório</option></select></div>
+            <div class="field"><label for="imageAlt">Texto alternativo</label><input id="imageAlt" type="text" placeholder="Descrição da imagem"></div>
+            <div class="field"><label for="imageFile">Nova imagem</label><input id="imageFile" type="file" accept="image/*" onchange="previewSelectedImage(this.files[0])"></div>
+            <div class="form-actions"><button class="btn btn-primary" onclick="saveImage()">Salvar imagem</button><button class="btn btn-danger" onclick="removeImage()">Remover imagem</button></div>
+          </div>
+          <div><label>Prévia</label><div id="imagePreview" class="asset-preview">Nenhuma imagem personalizada</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="tab-texts" class="tab-section hidden">
+      <div class="panel"><h2>Editar textos do layout</h2><p class="subtitle">Os campos abaixo correspondem aos principais textos visíveis do site.</p><div id="textEditor"></div><div class="form-actions"><button class="btn btn-primary" onclick="saveTexts()">Salvar todos os textos</button><button class="btn btn-secondary" onclick="resetTexts()">Restaurar textos originais</button></div></div>
+    </section>
+
+    <section id="tab-preview" class="tab-section hidden">
+      <div class="panel"><div class="panel-head"><div><h2>Visualização do site</h2><p class="subtitle">Atualize a prévia após salvar alterações.</p></div><div class="form-actions" style="margin-top:0"><button class="btn btn-primary btn-small" id="visualEditButton" onclick="toggleVisualTextEditor()">Ativar edição direta</button><button class="btn btn-secondary btn-small" onclick="refreshPreview()">Atualizar prévia</button></div></div><iframe id="previewFrame" class="preview-frame" src="index.html"></iframe></div>
+      <div class="panel danger-zone"><h2>Limpar personalizações</h2><p class="subtitle">Remove botões, textos e imagens cadastrados neste navegador.</p><button class="btn btn-danger" onclick="clearAll()">Apagar todas as personalizações</button></div>
+    </section>
+  </main>
 </div>
+<div id="status" class="status"></div>
 
 <script>
-/* [ADMIN_LOGIN] Troque o valor abaixo para mudar o login de acesso */
-const ADMIN_LOGIN = 'ADMIN';
-/* [ADMIN_SENHA] Troque o valor abaixo para mudar a senha de acesso */
-const ADMIN_SENHA = 'SENHORSALMO23';
+'use strict';
+const ADMIN_LOGIN='ADMIN';
+const ADMIN_PASSWORD='SENHORSALMO23';
+const STORAGE_KEY='angel_cms_config_v1';
+const DB_NAME='angel_cms_files_v1';
+const STORE_NAME='assets';
 
-/* [ADMIN_ITEM] Lista de documentos/links do painel.
-   Copie um bloco { ... } para adicionar um novo item.
-   tipo: 'download' -> baixa/abre um arquivo (coloque o nome do arquivo em "url",
-         o arquivo precisa estar na mesma pasta do site, ou use uma URL completa).
-   tipo: 'link'     -> redireciona para uma URL externa qualquer.
-   senha: ''        -> sem senha extra (o login da area administrativa ja protege).
-   senha: 'algumaSenha' -> pede uma senha extra so para esse item especifico. */
-const ITENS = [
-  {
-    label: 'Relatorio Tecnico Oficial (PDF)',
-    tipo: 'download',
-    url: 'PL2601369_5040_METALURG_400000031947_F.PDF',
-    senha: ''
-  }
-  /* [ADMIN_ITEM] Exemplo de novo item (apague o comentario para ativar):
-  ,{
-    label: 'Nome do novo botao',
-    tipo: 'link',
-    url: 'https://exemplo.com',
-    senha: ''
-  }
-  */
+const TEXT_FIELDS=[
+ {key:'heroEyebrow',label:'Abertura — identificação',selector:'.hero-eyebrow .eyebrow',original:'Relatório Técnico de Análise'},
+ {key:'heroTitle',label:'Abertura — título principal',selector:'.hero-title',html:true,original:'Titânio ASTM F136.<br><em>Análise que<br>documenta o real.</em>'},
+ {key:'heroSubtitle',label:'Abertura — descrição',selector:'.hero-subtitle',original:'A liga metálica é submetida a ensaios laboratoriais com metodologia padronizada, rastreabilidade de amostra e registro técnico completo — do recebimento à emissão do relatório.'},
+ {key:'aboutEyebrow',label:'Sobre — identificação',selector:'.about-content > .eyebrow',original:'Angel Piercings Atacado'},
+ {key:'aboutTitle',label:'Sobre — título',selector:'.about-content > h2',original:'Fornecedor técnico para profissionais do setor'},
+ {key:'aboutText',label:'Sobre — descrição',selector:'.about-content > p:not(.eyebrow)',original:'Sediada em Limeira/SP, a Angel Piercings Atacado atua há mais de uma década no fornecimento exclusivo para body piercers e estúdios. Trabalhamos com joias em aço cirúrgico, titânio e ouro, priorizando conformidade técnica, segurança e rastreabilidade de material.'},
+ {key:'processTitle',label:'Processos — título',selector:'#processos .section-header h2',original:'Etapas do registro de análise'},
+ {key:'processText',label:'Processos — descrição',selector:'#processos .section-header > p:last-child',original:'Cada relatório emitido segue um fluxo técnico documentado, com metodologia padronizada, registro de condições ambientais e conclusão por responsável técnico habilitado.'},
+ {key:'documentTitle',label:'Documento — título',selector:'#documento .doc-content h2',original:'Acesse o documento técnico oficial'},
+ {key:'documentText',label:'Documento — descrição',selector:'#documento .doc-content > p:not(.eyebrow)',original:'O relatório reúne os resultados de todos os ensaios realizados sobre a amostra, com número de identificação único, metodologia aplicada, especificação de referência e conclusão de conformidade.'},
+ {key:'readTitle',label:'Como ler — título',selector:'#como-ler .section-header h2',original:'Como interpretar um relatório de ensaios'},
+ {key:'readText',label:'Como ler — descrição',selector:'#como-ler .section-header > p:last-child',original:'Um relatório técnico reúne informações estruturadas em blocos. Entender cada campo é fundamental para avaliar corretamente os resultados da análise.'},
+ {key:'labTitle',label:'Laboratório — título',selector:'#laboratorio .lab-content h2',original:'Ambiente controlado e equipado para ensaios técnicos'},
+ {key:'labText',label:'Laboratório — descrição',selector:'#laboratorio .lab-content > p:not(.eyebrow)',original:'Os ensaios são realizados em laboratório técnico com controle de temperatura ambiente, equipamentos calibrados e procedimentos documentados passo a passo.'},
+ {key:'footerText',label:'Rodapé — descrição da empresa',selector:'.footer-brand > p',original:'Fornecedor técnico especializado em piercings e materiais para body piercers e estúdios. Mais de 10 anos de atuação na região de Limeira/SP.'}
 ];
 
-function tentarLogin() {
-  const user = document.getElementById('loginUser').value.trim();
-  const pass = document.getElementById('loginPass').value;
-  const erro = document.getElementById('loginError');
+function defaultConfig(){return{version:1,buttons:[],texts:{},images:{}}}
+function getConfig(){try{const x=JSON.parse(localStorage.getItem(STORAGE_KEY)||'null');return x&&typeof x==='object'?Object.assign(defaultConfig(),x):defaultConfig()}catch(e){return defaultConfig()}}
+function saveConfig(c){localStorage.setItem(STORAGE_KEY,JSON.stringify(c));notify('Alterações salvas.');if(!visualEditorEnabled)refreshPreview()}
+function uid(prefix){return prefix+'_'+Date.now().toString(36)+'_'+Math.random().toString(36).slice(2,8)}
+function esc(s){return String(s??'').replace(/[&<>'"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'}[c]))}
+function openDb(){return new Promise((resolve,reject)=>{const r=indexedDB.open(DB_NAME,1);r.onupgradeneeded=()=>{if(!r.result.objectStoreNames.contains(STORE_NAME))r.result.createObjectStore(STORE_NAME,{keyPath:'id'})};r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error)})}
+async function putAsset(id,file){const db=await openDb();return new Promise((resolve,reject)=>{const tx=db.transaction(STORE_NAME,'readwrite');tx.objectStore(STORE_NAME).put({id,name:file.name,type:file.type,size:file.size,blob:file,updatedAt:Date.now()});tx.oncomplete=()=>{db.close();resolve()};tx.onerror=()=>reject(tx.error)})}
+async function getAsset(id){if(!id)return null;const db=await openDb();return new Promise((resolve,reject)=>{const tx=db.transaction(STORE_NAME,'readonly');const r=tx.objectStore(STORE_NAME).get(id);r.onsuccess=()=>resolve(r.result||null);r.onerror=()=>reject(r.error);tx.oncomplete=()=>db.close()})}
+async function deleteAsset(id){if(!id)return;const db=await openDb();return new Promise((resolve,reject)=>{const tx=db.transaction(STORE_NAME,'readwrite');tx.objectStore(STORE_NAME).delete(id);tx.oncomplete=()=>{db.close();resolve()};tx.onerror=()=>reject(tx.error)})}
+async function clearAssets(){const db=await openDb();return new Promise((resolve,reject)=>{const tx=db.transaction(STORE_NAME,'readwrite');tx.objectStore(STORE_NAME).clear();tx.oncomplete=()=>{db.close();resolve()};tx.onerror=()=>reject(tx.error)})}
 
-  if (user === ADMIN_LOGIN && pass === ADMIN_SENHA) {
-    erro.textContent = '';
-    document.getElementById('loginScreen').style.display = 'none';
-    document.getElementById('dashboard').style.display = 'block';
-    renderItens();
-  } else {
-    erro.textContent = 'Login ou senha incorretos.';
-  }
+function login(){const u=document.getElementById('loginUser').value.trim(),p=document.getElementById('loginPass').value,e=document.getElementById('loginError');if(u===ADMIN_LOGIN&&p===ADMIN_PASSWORD){sessionStorage.setItem('angel_admin_session','1');e.textContent='';showApp()}else e.textContent='Login ou senha incorretos.'}
+function logout(){sessionStorage.removeItem('angel_admin_session');location.reload()}
+function showApp(){document.getElementById('loginScreen').classList.add('hidden');document.getElementById('app').classList.remove('hidden');renderButtons();renderTextEditor();renderImagePreview()}
+document.addEventListener('DOMContentLoaded',()=>{if(sessionStorage.getItem('angel_admin_session')==='1')showApp();document.getElementById('loginPass').addEventListener('keydown',e=>{if(e.key==='Enter')login()})})
+
+const tabTitles={buttons:['Botões do layout','Crie links ou downloads e escolha onde serão exibidos.'],images:['Fotos do layout','Atualize as imagens principais sem alterar o código.'],texts:['Textos do layout','Edite os principais conteúdos apresentados no site.'],preview:['Visualização','Confira o resultado das alterações no site.']};
+function openTab(name,btn){document.querySelectorAll('.tab-section').forEach(x=>x.classList.add('hidden'));document.getElementById('tab-'+name).classList.remove('hidden');document.querySelectorAll('.nav button').forEach(x=>x.classList.remove('active'));btn.classList.add('active');document.getElementById('pageTitle').textContent=tabTitles[name][0];document.getElementById('pageSubtitle').textContent=tabTitles[name][1];if(name==='preview')refreshPreview()}
+function notify(text){const el=document.getElementById('status');el.textContent=text;el.classList.add('show');clearTimeout(window._statusTimer);window._statusTimer=setTimeout(()=>el.classList.remove('show'),2200)}
+function refreshPreview(){visualEditorEnabled=false;const b=document.getElementById('visualEditButton');if(b){b.textContent='Ativar edição direta';b.classList.remove('btn-danger');b.classList.add('btn-primary')}const f=document.getElementById('previewFrame');if(f)f.src='index.html?cms='+Date.now()}
+
+function toggleButtonAction(){const file=document.getElementById('buttonAction').value==='file';document.getElementById('fileField').classList.toggle('hidden',!file);document.getElementById('urlField').classList.toggle('hidden',file);document.getElementById('newTabRow').classList.toggle('hidden',file)}
+async function saveButton(){
+ const c=getConfig(),id=document.getElementById('buttonId').value||uid('btn'),existing=c.buttons.find(x=>x.id===id)||{};
+ const action=document.getElementById('buttonAction').value,label=document.getElementById('buttonLabel').value.trim();
+ if(!label){alert('Informe o texto do botão.');return}
+ let assetId=existing.assetId||'',fileName=existing.fileName||'';
+ if(action==='link'&&!document.getElementById('buttonUrl').value.trim()){alert('Informe o endereço do link.');return}
+ if(action==='file'){
+   const file=document.getElementById('buttonFile').files[0];
+   if(file){assetId=assetId||uid('file');await putAsset(assetId,file);fileName=file.name}
+   if(!assetId){alert('Selecione o arquivo que será baixado.');return}
+ }
+ if(existing.assetId&&action!=='file')await deleteAsset(existing.assetId);
+ const item={id,label,action,url:action==='link'?document.getElementById('buttonUrl').value.trim():'',assetId:action==='file'?assetId:'',fileName:action==='file'?fileName:'',placement:document.getElementById('buttonPlacement').value,align:document.getElementById('buttonAlign').value,style:document.getElementById('buttonStyle').value,order:Number(document.getElementById('buttonOrder').value)||0,newTab:document.getElementById('buttonNewTab').checked,enabled:document.getElementById('buttonEnabled').checked};
+ const idx=c.buttons.findIndex(x=>x.id===id);if(idx>=0)c.buttons[idx]=item;else c.buttons.push(item);saveConfig(c);resetButtonForm();renderButtons()
+}
+function renderButtons(){const c=getConfig(),list=document.getElementById('buttonList');if(!c.buttons.length){list.innerHTML='<div class="empty">Nenhum botão criado.</div>';return}list.innerHTML=c.buttons.slice().sort((a,b)=>(a.order||0)-(b.order||0)).map(x=>`<div class="item"><div><div class="item-title">${esc(x.label)}</div><div class="item-meta">${x.action==='file'?'Download: '+esc(x.fileName||'arquivo'):'Link: '+esc(x.url)}<br>Posição: ${esc(x.placement)} · ${x.enabled===false?'oculto':'visível'}</div></div><div class="item-actions"><button class="btn btn-secondary btn-small" onclick="editButton('${x.id}')">Editar</button><button class="btn btn-secondary btn-small" onclick="toggleButton('${x.id}')">${x.enabled===false?'Ativar':'Ocultar'}</button><button class="btn btn-danger btn-small" onclick="removeButton('${x.id}')">Excluir</button></div></div>`).join('')}
+function editButton(id){const x=getConfig().buttons.find(b=>b.id===id);if(!x)return;document.getElementById('buttonId').value=x.id;document.getElementById('buttonLabel').value=x.label||'';document.getElementById('buttonAction').value=x.action||'link';document.getElementById('buttonUrl').value=x.url||'';document.getElementById('buttonPlacement').value=x.placement||'hero-actions';document.getElementById('buttonAlign').value=x.align||'left';document.getElementById('buttonStyle').value=x.style||'primary';document.getElementById('buttonOrder').value=x.order||0;document.getElementById('buttonNewTab').checked=x.newTab!==false;document.getElementById('buttonEnabled').checked=x.enabled!==false;document.getElementById('buttonFormTitle').textContent='Editar botão';document.getElementById('cancelButtonEdit').classList.remove('hidden');document.getElementById('currentFileHint').textContent=x.fileName?'Arquivo atual: '+x.fileName:'Selecione o arquivo.';toggleButtonAction();window.scrollTo({top:0,behavior:'smooth'})}
+function resetButtonForm(){document.getElementById('buttonId').value='';document.getElementById('buttonLabel').value='';document.getElementById('buttonAction').value='link';document.getElementById('buttonUrl').value='';document.getElementById('buttonFile').value='';document.getElementById('buttonPlacement').value='hero-actions';document.getElementById('buttonAlign').value='left';document.getElementById('buttonStyle').value='primary';document.getElementById('buttonOrder').value='0';document.getElementById('buttonNewTab').checked=true;document.getElementById('buttonEnabled').checked=true;document.getElementById('buttonFormTitle').textContent='Criar botão';document.getElementById('cancelButtonEdit').classList.add('hidden');document.getElementById('currentFileHint').textContent='PDF, imagem, planilha ou outro arquivo aceito pelo navegador.';toggleButtonAction()}
+function toggleButton(id){const c=getConfig(),x=c.buttons.find(b=>b.id===id);if(x)x.enabled=x.enabled===false;saveConfig(c);renderButtons()}
+async function removeButton(id){if(!confirm('Excluir este botão?'))return;const c=getConfig(),x=c.buttons.find(b=>b.id===id);if(x?.assetId)await deleteAsset(x.assetId);c.buttons=c.buttons.filter(b=>b.id!==id);saveConfig(c);renderButtons()}
+
+let temporaryPreviewUrl='';
+function previewSelectedImage(file){if(temporaryPreviewUrl)URL.revokeObjectURL(temporaryPreviewUrl);const box=document.getElementById('imagePreview');if(!file){renderImagePreview();return}temporaryPreviewUrl=URL.createObjectURL(file);box.innerHTML=`<img src="${temporaryPreviewUrl}" alt="Prévia">`}
+async function saveImage(){const slot=document.getElementById('imageSlot').value,file=document.getElementById('imageFile').files[0];if(!file){alert('Selecione uma imagem.');return}const c=getConfig(),old=c.images[slot],assetId=old?.assetId||uid('image');await putAsset(assetId,file);c.images[slot]={assetId,fileName:file.name,alt:document.getElementById('imageAlt').value.trim()};saveConfig(c);document.getElementById('imageFile').value='';renderImagePreview()}
+async function renderImagePreview(){const slot=document.getElementById('imageSlot').value,c=getConfig(),item=c.images[slot],box=document.getElementById('imagePreview');document.getElementById('imageAlt').value=item?.alt||'';if(!item?.assetId){box.textContent='Nenhuma imagem personalizada';return}const asset=await getAsset(item.assetId);if(!asset){box.textContent='Arquivo não localizado';return}const url=URL.createObjectURL(asset.blob);box.innerHTML='';const img=document.createElement('img');img.src=url;img.alt=item.alt||'Prévia';img.onload=()=>setTimeout(()=>URL.revokeObjectURL(url),1000);box.appendChild(img)}
+async function removeImage(){const slot=document.getElementById('imageSlot').value,c=getConfig(),item=c.images[slot];if(!item)return;if(!confirm('Remover a imagem personalizada desta área?'))return;await deleteAsset(item.assetId);delete c.images[slot];saveConfig(c);renderImagePreview()}
+
+function renderTextEditor(){const c=getConfig(),wrap=document.getElementById('textEditor');wrap.innerHTML=TEXT_FIELDS.map((f,i)=>`<div class="field"><label for="text_${f.key}">${esc(f.label)}</label><textarea id="text_${f.key}" data-key="${f.key}">${esc(c.texts[f.key]?.value??f.original)}</textarea>${f.html?'<p class="hint">Este campo aceita &lt;br&gt; e &lt;em&gt; para quebras e destaque.</p>':''}</div>`).join('')}
+function saveTexts(){const c=getConfig();TEXT_FIELDS.forEach(f=>{c.texts[f.key]={selector:f.selector,html:!!f.html,value:document.getElementById('text_'+f.key).value}});saveConfig(c)}
+function resetTexts(){if(!confirm('Restaurar os textos originais?'))return;const c=getConfig();c.texts={};saveConfig(c);renderTextEditor()}
+
+
+let visualEditorEnabled=false;
+function toggleVisualTextEditor(){
+ const frame=document.getElementById('previewFrame');
+ let doc;
+ try{doc=frame.contentDocument||frame.contentWindow.document}catch(e){alert('A prévia precisa estar no mesmo domínio do painel administrativo.');return}
+ if(!doc||!doc.body){alert('A prévia ainda está carregando.');return}
+ visualEditorEnabled=!visualEditorEnabled;
+ const btn=document.getElementById('visualEditButton');
+ btn.textContent=visualEditorEnabled?'Desativar edição direta':'Ativar edição direta';
+ btn.classList.toggle('btn-danger',visualEditorEnabled);
+ btn.classList.toggle('btn-primary',!visualEditorEnabled);
+ if(visualEditorEnabled){
+   doc.body.dataset.cmsVisualEditor='1';
+   const style=doc.createElement('style');style.id='cms-visual-editor-style';
+   style.textContent='body[data-cms-visual-editor="1"] h1,body[data-cms-visual-editor="1"] h2,body[data-cms-visual-editor="1"] h3,body[data-cms-visual-editor="1"] h4,body[data-cms-visual-editor="1"] p,body[data-cms-visual-editor="1"] span,body[data-cms-visual-editor="1"] li,body[data-cms-visual-editor="1"] strong{cursor:text!important;outline:1px dashed transparent;outline-offset:3px}body[data-cms-visual-editor="1"] h1:hover,body[data-cms-visual-editor="1"] h2:hover,body[data-cms-visual-editor="1"] h3:hover,body[data-cms-visual-editor="1"] h4:hover,body[data-cms-visual-editor="1"] p:hover,body[data-cms-visual-editor="1"] span:hover,body[data-cms-visual-editor="1"] li:hover,body[data-cms-visual-editor="1"] strong:hover{outline-color:#5cccc5;background:rgba(92,204,197,.12)}';
+   doc.head.appendChild(style);
+   doc.addEventListener('click',handleVisualTextClick,true);
+   notify('Edição direta ativada: clique em um texto da prévia.');
+ }else{
+   doc.body.removeAttribute('data-cms-visual-editor');
+   doc.getElementById('cms-visual-editor-style')?.remove();
+   doc.removeEventListener('click',handleVisualTextClick,true);
+   notify('Edição direta desativada.');
+ }
+}
+function handleVisualTextClick(e){
+ if(!visualEditorEnabled)return;
+ const el=e.target.closest('h1,h2,h3,h4,p,span,li,strong');
+ if(!el||el.closest('.cms-buttons,.cms-floating-buttons,script,style'))return;
+ e.preventDefault();e.stopPropagation();
+ const selector=buildStableSelector(el);
+ const current=el.innerHTML;
+ const value=prompt('Edite o texto selecionado. É permitido usar <br> e <em>.',current);
+ if(value===null)return;
+ const c=getConfig();
+ const existingKey=Object.keys(c.texts||{}).find(k=>c.texts[k]?.selector===selector);
+ const key=existingKey||uid('visualText');
+ c.texts[key]={selector,html:true,value};
+ saveConfig(c);
+ el.innerHTML=value;
+ notify('Texto atualizado.');
+}
+function buildStableSelector(el){
+ const parts=[];let node=el;
+ while(node&&node.nodeType===1&&node.tagName.toLowerCase()!=='body'){
+   if(node.id){parts.unshift('#'+CSS.escape(node.id));break}
+   let part=node.tagName.toLowerCase();
+   const useful=[...node.classList].filter(x=>!x.startsWith('visible')&&!x.startsWith('reveal')&&!x.startsWith('cms-')).slice(0,2);
+   if(useful.length)part+='.'+useful.map(x=>CSS.escape(x)).join('.');
+   const parent=node.parentElement;
+   if(parent){const same=[...parent.children].filter(x=>x.tagName===node.tagName);if(same.length>1)part+=`:nth-of-type(${same.indexOf(node)+1})`}
+   parts.unshift(part);node=parent;
+ }
+ return parts.join(' > ');
 }
 
-function logout() {
-  document.getElementById('dashboard').style.display = 'none';
-  document.getElementById('loginScreen').style.display = 'block';
-  document.getElementById('loginUser').value = '';
-  document.getElementById('loginPass').value = '';
-}
-
-function renderItens() {
-  const lista = document.getElementById('itemList');
-  lista.innerHTML = '';
-  ITENS.forEach(function(item, index) {
-    const row = document.createElement('div');
-    row.className = 'item-row';
-
-    const info = document.createElement('div');
-    info.innerHTML = '<span class="item-label">' + item.label + '</span>' +
-      '<span class="item-tag">' + (item.tipo === 'download' ? 'Download' : 'Link externo') + '</span>';
-
-    const btn = document.createElement('button');
-    btn.className = 'btn-primary';
-    btn.textContent = item.tipo === 'download' ? 'Baixar' : 'Acessar';
-    btn.onclick = function() { acessarItem(index); };
-
-    row.appendChild(info);
-    row.appendChild(btn);
-    lista.appendChild(row);
-  });
-}
-
-function acessarItem(index) {
-  const item = ITENS[index];
-  if (item.senha) {
-    const tentativa = prompt('Digite a senha para acessar "' + item.label + '":');
-    if (tentativa !== item.senha) {
-      alert('Senha incorreta.');
-      return;
-    }
-  }
-  window.open(item.url, '_blank');
-}
-
-/* Permite pressionar Enter para logar */
-document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById('loginPass').addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') tentarLogin();
-  });
-});
+function exportConfig(){const data={exportedAt:new Date().toISOString(),config:getConfig(),note:'Arquivos e imagens binários permanecem no IndexedDB deste navegador.'};const blob=new Blob([JSON.stringify(data,null,2)],{type:'application/json'}),url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download='angel-cms-config.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)}
+async function importConfig(file){if(!file)return;try{const data=JSON.parse(await file.text()),c=data.config||data;if(!c||!Array.isArray(c.buttons))throw new Error();localStorage.setItem(STORAGE_KEY,JSON.stringify(Object.assign(defaultConfig(),c)));notify('Configuração importada.');renderButtons();renderTextEditor();renderImagePreview();refreshPreview()}catch(e){alert('Arquivo de configuração inválido.')}}
+async function clearAll(){if(!confirm('Apagar todas as personalizações deste navegador?'))return;localStorage.removeItem(STORAGE_KEY);await clearAssets();renderButtons();renderTextEditor();renderImagePreview();refreshPreview();notify('Personalizações removidas.')}
 </script>
-
 </body>
 </html>
