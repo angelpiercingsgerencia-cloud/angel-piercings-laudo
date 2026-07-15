@@ -8,7 +8,7 @@
 
 <!-- ============================================================
      ANGEL PIERCINGS ATACADO — SITE INSTITUCIONAL PREMIUM
-     Versão: 1.0  |  Junho 2026
+     Versão: 2.0 com CMS local  |  Julho 2026
      Para trocar o logo: busque por [LOGO] nos comentários
      Para trocar o PDF: busque por [PDF_URL]
      Para trocar imagens: busque por [FOTO]
@@ -1437,6 +1437,85 @@ footer {
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation: none !important; transition: none !important; }
 }
+
+
+/* ===== CMS DINÂMICO — CONTEÚDO GERENCIADO PELO ADMIN ===== */
+.cms-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 24px auto;
+  padding: 0 24px;
+  position: relative;
+  z-index: 5;
+}
+.cms-buttons.align-left { justify-content: flex-start; }
+.cms-buttons.align-center { justify-content: center; }
+.cms-buttons.align-right { justify-content: flex-end; }
+.cms-buttons .cms-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 46px;
+  padding: 13px 24px;
+  border-radius: 999px;
+  font-family: var(--font-body);
+  font-size: .88rem;
+  font-weight: 600;
+  border: 1.5px solid transparent;
+  transition: var(--transition);
+  cursor: pointer;
+}
+.cms-buttons .cms-btn:hover { transform: translateY(-2px); }
+.cms-btn.primary { background: var(--charcoal); color: var(--white); }
+.cms-btn.primary:hover { background: var(--turq); color: var(--charcoal); box-shadow: var(--shadow-turq); }
+#documento .cms-btn.primary, #laboratorio .cms-btn.primary, footer .cms-btn.primary { background: var(--turq); color: var(--charcoal); }
+#documento .cms-btn.primary:hover, #laboratorio .cms-btn.primary:hover, footer .cms-btn.primary:hover { background: var(--white); color: var(--charcoal); }
+.cms-btn.turquoise { background: var(--turq); color: var(--charcoal); }
+.cms-btn.turquoise:hover { background: var(--charcoal); color: var(--white); }
+.cms-btn.outline { background: transparent; color: var(--charcoal); border-color: var(--charcoal); }
+.cms-btn.outline:hover { background: var(--charcoal); color: var(--white); }
+#documento .cms-btn.outline, #laboratorio .cms-btn.outline, footer .cms-btn.outline {
+  color: var(--white); border-color: rgba(255,255,255,.55);
+}
+#documento .cms-btn.outline:hover, #laboratorio .cms-btn.outline:hover, footer .cms-btn.outline:hover {
+  background: var(--white); color: var(--charcoal);
+}
+.cms-btn.white { background: var(--white); color: var(--charcoal); }
+.cms-btn.danger { background: #C0392B; color: var(--white); }
+.cms-managed-image { width: 100%; height: 100%; object-fit: cover; display: block; }
+.about-img-main > .cms-managed-image,
+.lab-img > .cms-managed-image { position: absolute; inset: 0; z-index: 2; }
+.hero-cms-image {
+  position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1;
+}
+.hero-visual.cms-has-image .ring-scene { display: none; }
+.hero-visual.cms-has-image .hero-visual-bg { z-index: 0; }
+.hero-visual.cms-has-image::after {
+  content: ''; position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(to top, rgba(21,33,31,.5), rgba(21,33,31,.05) 55%, rgba(21,33,31,.25));
+  pointer-events: none;
+}
+.hero-visual.cms-has-image .hero-doc-card { z-index: 3; }
+.cms-floating-buttons {
+  position: fixed; z-index: 900; display: flex; flex-direction: column; gap: 10px; pointer-events: none;
+}
+.cms-floating-buttons > * { pointer-events: auto; }
+.cms-floating-buttons.top-left { top: 92px; left: 20px; align-items: flex-start; }
+.cms-floating-buttons.top-right { top: 92px; right: 20px; align-items: flex-end; }
+.cms-floating-buttons.bottom-left { bottom: 20px; left: 20px; align-items: flex-start; }
+.cms-floating-buttons.bottom-right { bottom: 20px; right: 20px; align-items: flex-end; }
+.cms-floating-buttons .cms-btn { box-shadow: 0 10px 34px rgba(0,0,0,.22); }
+@media (max-width: 768px) {
+  .cms-buttons { padding: 0 20px; }
+  .cms-buttons .cms-btn { width: 100%; }
+  .cms-floating-buttons { left: 14px !important; right: 14px !important; align-items: stretch !important; }
+  .cms-floating-buttons .cms-btn { width: 100%; }
+}
+
 </style>
 </head>
 <body>
@@ -2311,5 +2390,246 @@ async function handleLogin() {
 }
 
 </script>
+
+
+<script>
+/* ========================================================
+   CMS LOCAL — integração com admin.html
+   Configurações: localStorage | Arquivos e imagens: IndexedDB
+   Observação: em site estático, as alterações ficam restritas ao
+   navegador/origem onde foram feitas. Para publicação global,
+   conecte este painel a um backend ou serviço de banco/arquivos.
+   ======================================================== */
+(function () {
+  'use strict';
+
+  const STORAGE_KEY = 'angel_cms_config_v1';
+  const DB_NAME = 'angel_cms_files_v1';
+  const STORE_NAME = 'assets';
+  let activeObjectUrls = [];
+
+  function defaultConfig() {
+    return { version: 1, buttons: [], texts: {}, images: {} };
+  }
+
+  function getConfig() {
+    try {
+      const parsed = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null');
+      return parsed && typeof parsed === 'object' ? Object.assign(defaultConfig(), parsed) : defaultConfig();
+    } catch (e) {
+      console.warn('Configuração CMS inválida:', e);
+      return defaultConfig();
+    }
+  }
+
+  function openDb() {
+    return new Promise((resolve, reject) => {
+      const request = indexedDB.open(DB_NAME, 1);
+      request.onupgradeneeded = () => {
+        const db = request.result;
+        if (!db.objectStoreNames.contains(STORE_NAME)) db.createObjectStore(STORE_NAME, { keyPath: 'id' });
+      };
+      request.onsuccess = () => resolve(request.result);
+      request.onerror = () => reject(request.error);
+    });
+  }
+
+  async function getAsset(id) {
+    if (!id) return null;
+    const db = await openDb();
+    return new Promise((resolve, reject) => {
+      const tx = db.transaction(STORE_NAME, 'readonly');
+      const req = tx.objectStore(STORE_NAME).get(id);
+      req.onsuccess = () => resolve(req.result || null);
+      req.onerror = () => reject(req.error);
+      tx.oncomplete = () => db.close();
+    });
+  }
+
+  function cleanupObjectUrls() {
+    activeObjectUrls.forEach(url => URL.revokeObjectURL(url));
+    activeObjectUrls = [];
+  }
+
+  function safeSelectorAll(selector) {
+    try { return document.querySelectorAll(selector); }
+    catch (e) { console.warn('Seletor CMS inválido:', selector); return []; }
+  }
+
+  function applyTexts(config) {
+    Object.entries(config.texts || {}).forEach(([key, item]) => {
+      if (!item || !item.selector) return;
+      safeSelectorAll(item.selector).forEach(el => {
+        if (item.html) el.innerHTML = item.value || '';
+        else el.textContent = item.value || '';
+      });
+    });
+  }
+
+  async function applyImages(config) {
+    const entries = Object.entries(config.images || {});
+    for (const [slot, item] of entries) {
+      if (!item || !item.assetId) continue;
+      try {
+        const asset = await getAsset(item.assetId);
+        if (!asset || !asset.blob) continue;
+        const url = URL.createObjectURL(asset.blob);
+        activeObjectUrls.push(url);
+
+        if (slot === 'logo') {
+          document.querySelectorAll('.nav-logo-img, .footer-logo-chip img').forEach(img => { img.src = url; });
+        } else if (slot === 'hero') {
+          const wrap = document.querySelector('.hero-visual');
+          if (wrap) {
+            let img = wrap.querySelector('.hero-cms-image');
+            if (!img) {
+              img = document.createElement('img');
+              img.className = 'hero-cms-image';
+              img.alt = item.alt || 'Imagem principal';
+              wrap.prepend(img);
+            }
+            img.src = url;
+            wrap.classList.add('cms-has-image');
+          }
+        } else if (slot === 'about') {
+          const wrap = document.querySelector('.about-img-main');
+          if (wrap) setManagedImage(wrap, url, item.alt || 'Imagem institucional');
+        } else if (slot === 'laboratory') {
+          const wrap = document.querySelector('.lab-img');
+          if (wrap) setManagedImage(wrap, url, item.alt || 'Laboratório');
+        }
+      } catch (e) {
+        console.warn('Não foi possível carregar a imagem CMS:', slot, e);
+      }
+    }
+  }
+
+  function setManagedImage(wrap, url, alt) {
+    let img = wrap.querySelector('.cms-managed-image');
+    if (!img) {
+      img = document.createElement('img');
+      img.className = 'cms-managed-image';
+      wrap.appendChild(img);
+    }
+    img.src = url;
+    img.alt = alt;
+  }
+
+  function createButtonElement(item) {
+    const element = document.createElement(item.action === 'link' ? 'a' : 'button');
+    element.className = 'cms-btn ' + (item.style || 'primary');
+    element.textContent = item.label || 'Acessar';
+    element.dataset.cmsButtonId = item.id || '';
+
+    if (item.action === 'link') {
+      element.href = item.url || '#';
+      if (item.newTab) {
+        element.target = '_blank';
+        element.rel = 'noopener noreferrer';
+      }
+    } else {
+      element.type = 'button';
+      element.addEventListener('click', async () => {
+        try {
+          const asset = await getAsset(item.assetId);
+          if (!asset || !asset.blob) throw new Error('Arquivo não encontrado');
+          const url = URL.createObjectURL(asset.blob);
+          const a = document.createElement('a');
+          a.href = url;
+          a.download = item.fileName || asset.name || 'arquivo';
+          document.body.appendChild(a);
+          a.click();
+          a.remove();
+          setTimeout(() => URL.revokeObjectURL(url), 1500);
+        } catch (e) {
+          alert('O arquivo deste botão não está disponível neste navegador.');
+        }
+      });
+    }
+    return element;
+  }
+
+  function getPlacement(item) {
+    const placement = item.placement || 'hero-actions';
+    const mapping = {
+      'hero-actions': { selector: '.hero-actions', where: 'inside' },
+      'hero-bottom': { selector: '#hero', where: 'after' },
+      'sobre-top': { selector: '#sobre .container', where: 'top' },
+      'sobre-bottom': { selector: '#sobre .container', where: 'bottom' },
+      'processos-top': { selector: '#processos .container', where: 'top' },
+      'processos-bottom': { selector: '#processos .container', where: 'bottom' },
+      'documento-top': { selector: '#documento .container', where: 'top' },
+      'documento-bottom': { selector: '#documento .container', where: 'bottom' },
+      'como-ler-top': { selector: '#como-ler .container', where: 'top' },
+      'como-ler-bottom': { selector: '#como-ler .container', where: 'bottom' },
+      'laboratorio-top': { selector: '#laboratorio .container', where: 'top' },
+      'laboratorio-bottom': { selector: '#laboratorio .container', where: 'bottom' },
+      'footer-top': { selector: 'footer .container', where: 'top' },
+      'footer-bottom': { selector: 'footer .container', where: 'bottom' }
+    };
+    return mapping[placement] || mapping['hero-actions'];
+  }
+
+  function getOrCreateWrapper(item) {
+    if ((item.placement || '').startsWith('floating-')) {
+      const position = item.placement.replace('floating-', '');
+      let wrap = document.querySelector('.cms-floating-buttons.' + position);
+      if (!wrap) {
+        wrap = document.createElement('div');
+        wrap.className = 'cms-floating-buttons ' + position;
+        document.body.appendChild(wrap);
+      }
+      return wrap;
+    }
+
+    const targetInfo = getPlacement(item);
+    const target = document.querySelector(targetInfo.selector);
+    if (!target) return null;
+    const key = (item.placement || 'hero-actions') + '-' + (item.align || 'left');
+    let wrap = document.querySelector('.cms-buttons[data-cms-placement="' + key + '"]');
+    if (!wrap) {
+      wrap = document.createElement('div');
+      wrap.className = 'cms-buttons align-' + (item.align || 'left');
+      wrap.dataset.cmsPlacement = key;
+      if (targetInfo.where === 'inside') {
+        wrap.style.display = 'contents';
+        target.appendChild(wrap);
+      } else if (targetInfo.where === 'top') {
+        target.prepend(wrap);
+      } else if (targetInfo.where === 'bottom') {
+        target.appendChild(wrap);
+      } else if (targetInfo.where === 'after') {
+        target.insertAdjacentElement('afterend', wrap);
+      }
+    }
+    return wrap;
+  }
+
+  function applyButtons(config) {
+    document.querySelectorAll('.cms-buttons, .cms-floating-buttons').forEach(el => el.remove());
+    const items = [...(config.buttons || [])].filter(x => x && x.enabled !== false);
+    items.sort((a, b) => (Number(a.order) || 0) - (Number(b.order) || 0));
+    items.forEach(item => {
+      const wrap = getOrCreateWrapper(item);
+      if (wrap) wrap.appendChild(createButtonElement(item));
+    });
+  }
+
+  async function applyCms() {
+    cleanupObjectUrls();
+    const config = getConfig();
+    applyTexts(config);
+    applyButtons(config);
+    await applyImages(config);
+  }
+
+  document.addEventListener('DOMContentLoaded', applyCms);
+  window.addEventListener('storage', e => {
+    if (e.key === STORAGE_KEY) window.location.reload();
+  });
+  window.AngelCMS = { refresh: applyCms };
+})();
+</script>
+
 </body>
 </html>
