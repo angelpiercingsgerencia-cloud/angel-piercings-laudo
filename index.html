@@ -267,6 +267,40 @@ nav {
   letter-spacing: 0.01em;
   text-align: center;
 }
+.btn-shop-cta {
+  flex: 1 1 100%;
+  max-width: 555px;
+  justify-content: center;
+  padding: 16px 24px;
+  background: var(--turq);
+  color: var(--charcoal);
+  border: 1.5px solid rgba(21,33,31,0.14);
+  box-shadow: var(--shadow-turq);
+}
+.btn-shop-cta:hover {
+  background: var(--charcoal);
+  color: var(--white);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 34px rgba(21,33,31,0.22);
+}
+.btn-shop-cta .btn-shop-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+  line-height: 1.15;
+}
+.btn-shop-cta strong {
+  font-size: 0.84rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+.btn-shop-cta span {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: rgba(21,33,31,0.68);
+}
+.btn-shop-cta:hover span { color: rgba(255,255,255,0.72); }
 
 /* ===== HERO ===== */
 #hero {
@@ -1224,6 +1258,8 @@ footer {
   .verify-form { flex-direction: column; }
   .hero-actions { flex-direction: column; }
   .hero-actions .btn { justify-content: center; }
+  .btn-shop-cta { max-width: 100%; }
+  .btn-shop-cta .btn-shop-copy { align-items: center; text-align: center; }
 
   .lab-badge { right: 0; }
 }
@@ -1305,6 +1341,13 @@ footer {
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
         DOWNLOAD LAUDO ANGELPIERCINGS ATACADO
       </button>
+      <a href="https://www.angelpiercings.com.br/" class="btn btn-shop-cta" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h8.72a2 2 0 0 0 1.94-1.52L21 8H5.12"/><path d="M14 11h4"/><path d="M16 9v4"/></svg>
+        <span class="btn-shop-copy">
+          <strong>Confira mais de 2 mil modelos de joias</strong>
+          <span>Compre com segurança na Angel Piercings Atacado</span>
+        </span>
+      </a>
     </div>
 
     <div class="hero-badges">
